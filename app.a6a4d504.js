@@ -133,7 +133,7 @@ search.addWidget(instantsearch.widgets.hits({
       item: 'card border-left-primary shadow h-100 py-2',
     },
   templates: {
-    item: "\n        <article>\n          <h1>{{#helpers.highlight}}{ \"attribute\": \"title\" }{{/helpers.highlight}}</h1>\n          <p>{{#helpers.highlight}}{ \"attribute\": \"author\" }{{/helpers.highlight}}</p>\n          <p>{{#helpers.highlight}}{ \"attribute\": \"tag\" }{{/helpers.highlight}}</p>\n        </article>\n      "
+    item: "\n        <article>\n          <p>{{#helpers.highlight}}{ \"attribute\": \"img\" }{{/helpers.highlight}}</p> /n <h3>{{#helpers.highlight}}{ \"attribute\": \"title\" }{{/helpers.highlight}}</h3>\n          <p>{{#helpers.highlight}}{ \"attribute\": \"author\" }{{/helpers.highlight}}</p>\n          <p>{{#helpers.highlight}}{ \"attribute\": \"tag\" }{{/helpers.highlight}}</p>\n        </article>\n      "
   }
   
 }));
