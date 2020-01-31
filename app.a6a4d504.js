@@ -119,9 +119,9 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   return newRequire;
 })({"src/app.js":[function(require,module,exports) {
 /* global algoliasearch instantsearch */
-var searchClient = algoliasearch('I65TR7H66L', 'f163065f7e45169068ee7cba0f4eb79e');
+var searchClient = algoliasearch('DJ99XPRVT5', '27c413cc36bcd10ce69286c365345052');
 var search = instantsearch({
-  indexName: 'Tixte_Search',
+  indexName: 'filipe_images',
   searchClient: searchClient
 });
 search.addWidget(instantsearch.widgets.searchBox({
