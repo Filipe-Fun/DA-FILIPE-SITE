@@ -25,6 +25,7 @@
         <br><span class="movie-year">
           Created By: {{author}}
         </span>
+        
       </div>
 
       <div>
@@ -35,7 +36,9 @@
           </div>
         {{/genre}}
       </div>
+      <div class="wpac-rating" data-wpac-chan="{{image}}"></div>
     </div>
+    
   </article>
 </script>
 
@@ -58,7 +61,7 @@
 
     </div>
 
-    <div class="canvas">
+    <div class="btn-primary">
       <div id="hits"></div>
       
       <div id="pagination"></div>
@@ -360,4 +363,17 @@ search.start();
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/instantsearch.js/1/instantsearch.min.css">
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css">
+<script type="text/javascript">
+wpac_init = window.wpac_init || [];
+wpac_init.push({widget: 'Rating', id: 19019});
+(function() {
+    if ('WIDGETPACK_LOADED' in window) return;
+    WIDGETPACK_LOADED = true;
+    var mc = document.createElement('script');
+    mc.type = 'text/javascript';
+    mc.async = true;
+    mc.src = 'https://embed.widgetpack.com/widget.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+})();
+</script>
 </html>
