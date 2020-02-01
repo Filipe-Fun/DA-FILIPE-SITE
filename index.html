@@ -17,7 +17,7 @@
 
 
 <script id="movie" type="text/x-handlebars-template">
-  <article class="movie card border-primary">
+  <article class="movie">
     <img class="movie-image" src="{{image}}" />
     <div class="movie-meta">
       <div class="movie-title">
@@ -59,7 +59,7 @@
     </div>
 
     <div class="canvas">
-      <div id="hits" class="card border-primary"></div>
+      <div id="hits"></div>
       
       <div id="pagination"></div>
     </div>
@@ -152,6 +152,12 @@ body {
 .ais-hits--item {
   flex: 1 0 25%;
   min-width: 380px;
+    flex-direction: column;
+  min-width: 0;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
 }
 .movie {
   position: relative;
