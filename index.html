@@ -64,7 +64,9 @@
           </div>
         {{/genre}}
       </div>
-      <div class="wpac-rating" data-wpac-chan="{{image}}" style="font-size:10px;">ratings are loading... Are ratings not showing up? <button class="btn btn-secondary btn-sm" onClick="window.location.reload();">Reload Ratings</button></div>
+      <div class="wpac-rating" data-wpac-chan="{{image}}" style="font-size:10px;"><div class="spinner-border text-primary" role="status">
+  <span class="sr-only">Loading, please wait...</span><br>Reviews not loading?
+</div><button class="btn btn-secondary btn-sm" onClick="window.location.reload();">Manually Reload</button></div>
     </div>
     
   </article>
@@ -90,7 +92,9 @@
     </div>
 
     <div class="">
-      <div id="hits"></div>
+      <div id="hits"><div class="spinner-border text-primary" role="status">
+  <span class="sr-only">Loading, please wait...</span>
+</div></div>
       
       <div id="pagination"></div>
     </div>
