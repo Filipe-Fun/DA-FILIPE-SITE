@@ -34,20 +34,31 @@
     <link href="product.css" rel="stylesheet">
   </head>
   <body>
-    <nav class="site-header sticky-top py-1">
-  <div class="container d-flex flex-column flex-md-row justify-content-between">
-    <a class="py-2" href="#" aria-label="Product">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mx-auto" role="img" viewBox="0 0 24 24" focusable="false"><title>Product</title><circle cx="12" cy="12" r="10"/><path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"/></svg>
-    </a>
-    <a class="py-2 d-none d-md-inline-block" href="#">Tour</a>
-    <a class="py-2 d-none d-md-inline-block" href="#">Product</a>
-    <a class="py-2 d-none d-md-inline-block" href="#">Features</a>
-    <a class="py-2 d-none d-md-inline-block" href="#">Enterprise</a>
-    <a class="py-2 d-none d-md-inline-block" href="#">Support</a>
-    <a class="py-2 d-none d-md-inline-block" href="#">Pricing</a>
-    <a class="py-2 d-none d-md-inline-block" href="#">Cart</a>
-  </div>
-</nav>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+    <span><a class="navbar-brand" href="https://filipe.fun"><img src="https://cdn.filipe.fun/base.png" style="width:50px;"> Filipe.Fun</a></span>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor02">
+      <ul class="navbar-nav mr-auto">
+
+        <li class="nav-item">
+          <a class="nav-link" href="https://filipe.fun/all">Image Gallery</a> 
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://filipe.fun/community"> · Community Center</a>
+        </li>
+<li class="nav-item">
+          <a class="nav-link" href="https://filipe.fun/cards"> · Filipe Cards <span class="badge badge-success">NEW!</span></a> 
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="https://filipe.fun/generator"> · Filipe Generator <span class="badge badge-info">Coming Soon</span></a>
+        </li>
+      </ul>
+     
+    </div>
+  </nav>
 
 <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
   <div class="col-md-5 p-lg-5 mx-auto my-5">
@@ -75,109 +86,28 @@
       <p class="lead">The all-new Filipe Cards Starter Kit is here! Jump-start your Filipe Card collection with this FREE kit with all the necessities.</p>
       <a class="btn btn-outline-info btn-lg" href="https://filipe.fun/cards/order?series=1&type=starter_kit">Pre-order Now</a>
     </div>
-    <img src="https://cdn.filipe.fun/cards/birthday_new.svg" class="mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0; transform: rotate(-330deg);"><img src="https://cdn.filipe.fun/cards/original.svg" class=" mx-auto" style="width: 80%; transform: rotate(330deg); height: 300px; border-radius: 21px 21px 0 0; position: absolute; top: 840px;
-      left: -203px;"><img style="width: 80%; height: 300px; border-radius: 21px 21px 0 0; position: absolute; top: 840px;
-      left: -195px;" class=" mx-auto" src="https://cdn.filipe.fun/cards/sad_new.svg">
+    <img src="https://cdn.filipe.fun/cards/birthday_new.svg" class="mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0; transform: rotate(40deg);"><img src="https://cdn.filipe.fun/cards/original.svg" class=" mx-auto" style="width: 80%; transform: rotate(330deg); height: 300px; border-radius: 21px 21px 0 0; position: absolute; top: 443px;
+      left: 495px;"><img style="width: 80%; height: 300px; border-radius: 21px 21px 0 0; position: absolute; top: 980px;
+      left: 495px;" class=" mx-auto" src="https://cdn.filipe.fun/cards/sad_new.svg">
   </div>
 </div>
+
 
 <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
   <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
     <div class="my-3 p-3">
-      <h2 class="display-5">Another headline</h2>
-      <p class="lead">And an even wittier subheading.</p>
+      <h2 class="display-5">Filipe Cards</h2>
+      <p class="lead">Your opinion matters. Its the votes of people like YOU that determine what becomes a filipe card. When available, you will be enabled to vote on what Filipes make the cut and become a future Filipe Card.</p>
     </div>
-    <div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
+    <a class="btn btn-primary btn-lg disabled" href="https://filipe.fun/vote/current">No Voting Is Currently Available.</a>
   </div>
-  <div class="bg-primary mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
-    <div class="my-3 py-3">
-      <h2 class="display-5">Another headline</h2>
-      <p class="lead">And an even wittier subheading.</p>
-    </div>
-    <div class="bg-light shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-  </div>
-</div>
+  
 
-<div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
-  <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-    <div class="my-3 p-3">
-      <h2 class="display-5">Another headline</h2>
-      <p class="lead">And an even wittier subheading.</p>
+<footer id="sticky-footer" class="py-4 bg-dark text-white-50">
+    <div class="container text-center">
+      <small>Copyright © 2020 <a href="https://filipe.fun/community">The Filipe Community.</a> All Rights Reserved. <br>Website development by <a href="https://colem.dev">colem.dev</a>. Site sponsored and brought to you by <a href="https://www.cci.services">CCI.Services </a>- We make services, products and games to simplify technology.</small>
     </div>
-    <div class="bg-white shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-  </div>
-  <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-    <div class="my-3 py-3">
-      <h2 class="display-5">Another headline</h2>
-      <p class="lead">And an even wittier subheading.</p>
-    </div>
-    <div class="bg-white shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-  </div>
-</div>
-
-<div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
-  <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-    <div class="my-3 p-3">
-      <h2 class="display-5">Another headline</h2>
-      <p class="lead">And an even wittier subheading.</p>
-    </div>
-    <div class="bg-white shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-  </div>
-  <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-    <div class="my-3 py-3">
-      <h2 class="display-5">Another headline</h2>
-      <p class="lead">And an even wittier subheading.</p>
-    </div>
-    <div class="bg-white shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-  </div>
-</div>
-
-<footer class="container py-5">
-  <div class="row">
-    <div class="col-12 col-md">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mb-2" role="img" viewBox="0 0 24 24" focusable="false"><title>Product</title><circle cx="12" cy="12" r="10"/><path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"/></svg>
-      <small class="d-block mb-3 text-muted">&copy; 2017-2019</small>
-    </div>
-    <div class="col-6 col-md">
-      <h5>Features</h5>
-      <ul class="list-unstyled text-small">
-        <li><a class="text-muted" href="#">Cool stuff</a></li>
-        <li><a class="text-muted" href="#">Random feature</a></li>
-        <li><a class="text-muted" href="#">Team feature</a></li>
-        <li><a class="text-muted" href="#">Stuff for developers</a></li>
-        <li><a class="text-muted" href="#">Another one</a></li>
-        <li><a class="text-muted" href="#">Last time</a></li>
-      </ul>
-    </div>
-    <div class="col-6 col-md">
-      <h5>Resources</h5>
-      <ul class="list-unstyled text-small">
-        <li><a class="text-muted" href="#">Resource</a></li>
-        <li><a class="text-muted" href="#">Resource name</a></li>
-        <li><a class="text-muted" href="#">Another resource</a></li>
-        <li><a class="text-muted" href="#">Final resource</a></li>
-      </ul>
-    </div>
-    <div class="col-6 col-md">
-      <h5>Resources</h5>
-      <ul class="list-unstyled text-small">
-        <li><a class="text-muted" href="#">Business</a></li>
-        <li><a class="text-muted" href="#">Education</a></li>
-        <li><a class="text-muted" href="#">Government</a></li>
-        <li><a class="text-muted" href="#">Gaming</a></li>
-      </ul>
-    </div>
-    <div class="col-6 col-md">
-      <h5>About</h5>
-      <ul class="list-unstyled text-small">
-        <li><a class="text-muted" href="#">Team</a></li>
-        <li><a class="text-muted" href="#">Locations</a></li>
-        <li><a class="text-muted" href="#">Privacy</a></li>
-        <li><a class="text-muted" href="#">Terms</a></li>
-      </ul>
-    </div>
-  </div>
-</footer>
+  </footer>
     <style>
       .container {
   max-width: 960px;
