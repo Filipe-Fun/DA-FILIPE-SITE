@@ -377,9 +377,7 @@ search.addWidget(instantsearch.widgets.searchBox({
   placeholder: 'Search by Filipe Name, Creator or Tag...',
   autofocus: false
 }));
- search.addWidget(instantsearch.widgets.poweredBy({
-  container: '#pb'
-}));
+
 search.addWidget(instantsearch.widgets.stats({
   container: '#stats'
 }));
@@ -418,6 +416,10 @@ search.addWidget(instantsearch.widgets.refinementList({
   operator: 'and',
   limit: 10
 }));
+  instantsearch.widgets.poweredBy({
+  container: '#pb',
+});
+
 
 search.start();
 </script>
