@@ -70,7 +70,7 @@
 
     <div class="input-container">
       <input style="font-size: 20px;" class="form-control mr-sm-2" type="text" id="search-box" />
-      <div id="stats"></div>
+      <div id="stats"></div><div id="pb"></div>
     </div>
   </div>
   
@@ -375,6 +375,9 @@ search.addWidget(instantsearch.widgets.searchBox({
   container: '#search-box',
   placeholder: 'Search by Filipe Name, Creator or Tag...',
   autofocus: false
+}));
+ search.addWidget(instantsearch.widgets.poweredBy({
+  container: '#pb'
 }));
 search.addWidget(instantsearch.widgets.stats({
   container: '#stats'
