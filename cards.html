@@ -5,11 +5,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Jekyll v3.8.6">
+    <meta name="author" content="colem.dev">
+    <meta name="generator" content="">
     <title>Filipe.Fun - CARDS!</title>
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/product/">
+ 
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
@@ -100,11 +100,36 @@
     <div class="my-3 p-3">
      <h2 class="display-5">Filipe Cards - Dashboard</h2>
       <div id="logged">
-        <h1>Hello <span id="name"></span></h1>
+        <h1>Hello <span id="uname"></span></h1>
         <p>You have <span id="coins">0</span> coins.</p>
+        <div class="container">
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Account Information</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="custom-tab" data-toggle="tab" href="#custom" role="tab" aria-controls="custom" aria-selected="false">Recent Purchases</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" id="badges-tab" data-toggle="tab" href="#badges" role="tab" aria-controls="badges" aria-selected="true">Order a Pack</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/shop" role="tab" aria-selected="false">Redeem a Code</a>
+  </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">ADD HERE</div>
+    
+    
+  <div class="tab-pane fade" id="custom" role="tabpanel" aria-labelledby="custom-tab&quot;">ADD HERE</div>
+                                                 
+                                                                                    
+  <div class="tab-pane fade active show" id="badges" role="tabpanel" aria-labelledby="badges-tab">ADD HERE</div>
+</div>
+  </div>
         <p id="purcount"></p>
-        <button id="getmore">Click Here to Get 1 More Coin</button><br>
-        <button id="buything">Click Here to Buy a Thing for 1 coin</button><br>
+       <!-- <button id="getmore">Click Here to Get 1 More Coin</button><br>
+        <button id="buything">Click Here to Buy a Thing for 1 coin</button><br> --!>
        <!-- <h1>Watch a video for a free coin!</h1>
         <p>Click the video to begin your reward ad</p>
         <video id="movie" src="https://ak01-video-cdn.slidely.com/promoVideos/videos/5d/2d/5d2d8c29861eda03887b76b2/preview.mp4" onclick="this.play()" width="400" oncontextmenu="return false;"></video>
