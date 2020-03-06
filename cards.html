@@ -319,7 +319,6 @@ firebase.auth().getRedirectResult().then(function(result) {
             if (data.val() == null || data.val() == "null") {
                 firebase.database().ref('/coins/' + firebase.auth().currentUser.uid).set(0);
             }
-            alert("You have " + data.val() + " coins")
             coincount.innerHTML = data.val()
         });
 
