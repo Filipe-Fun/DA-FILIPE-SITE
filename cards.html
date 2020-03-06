@@ -232,7 +232,113 @@ function topFunction() {
   location.href = "https://colem.dev";
 }
 </script>
+<script>
+  var ntl = document.getElementById("needtologin")
+var logged = document.getElementById("logged")
 
+var login = document.getElementById("login")
+var getmore = document.getElementById("getmore")
+var buything = document.getElementById("buything")
+var name = document.getElementById("name")
+var coincount = document.getElementById("coins")
+var purcount = document.getElementById("purcount")
+
+var loggedin = false
+
+  var firebaseConfig = {
+    apiKey: "AIzaSyDXE3PYy9j-MECQQLVjrB92A9wCrR8SNAQ",
+    authDomain: "filipe-fun.firebaseapp.com",
+    databaseURL: "https://filipe-fun.firebaseio.com",
+    projectId: "filipe-fun",
+    storageBucket: "filipe-fun.appspot.com",
+    messagingSenderId: "549502735262",
+    appId: "1:549502735262:web:b310c7c2d716f9242e3c8f",
+    measurementId: "G-YC2ZQ3XTHX"
+  };
+firebase.initializeApp(firebaseConfig);
+var database = firebase.database();
+
+login.onclick = function() {
+    var provider = new firebase.auth.GoogleAuthProvider();
+    firebase.auth().signInWithRedirect(provider);
+}
+
+function addCoins(amount) {
+    // var curr_coins_ref = firebase.database().ref('/coins/' + firebase.auth().currentUser.uid)
+    // var curr_coins = parseInt(curr_coins_ref.once('value'))
+    firebase.database().ref('/coins/' + firebase.auth().currentUser.uid).once('value').then(function(snapshot) {
+        curr_coins = snapshot.val()
+        firebase.database().ref('/coins/' + firebase.auth().currentUser.uid).set(curr_coins + parseInt(amount));
+    });
+}
+
+function makepurchase(name, amount) {
+    firebase.database().ref('/coins/' + firebase.auth().currentUser.uid).once('value').then(function(snapshot) {
+        curr_coins = snapshot.val()
+        if (curr_coins - parseInt(amount) < 0) {
+            alert("Insufficent Funds")
+            return;
+        }
+        firebase.database().ref('/coins/' + firebase.auth().currentUser.uid).set(curr_coins - parseInt(amount));
+        firebase.database().ref('/purchases/' + firebase.auth().currentUser.uid).once('value').then(function(snapshot) {
+            curr_purchases = snapshot.val()
+            curr_purchases.push(name)
+            firebase.database().ref('/purchases/' + firebase.auth().currentUser.uid).set(curr_purchases);
+        });
+    });
+}
+
+getmore.onclick = function() {
+    addCoins(1)
+}
+
+buything.onclick = function() {
+    makepurchase("Thing", 1)
+}
+
+firebase.auth().getRedirectResult().then(function(result) {
+    if (result.user) {
+        window.user = result.user
+        window.loggedin = true
+
+        name.innerHTML = result.user.displayName
+
+        setInterval(() => {
+            if (window.loggedin == true) {
+                ntl.style.display = "none"
+                logged.style.display = "block"
+            }
+            if (window.loggedin == false) {
+                ntl.style.display = "block"
+                logged.style.display = "none"
+            }
+        }, 100)
+
+        var userCoins = firebase.database().ref('/coins/' + firebase.auth().currentUser.uid)
+        userCoins.on('value', function(data) {
+            if (data.val() == null || data.val() == "null") {
+                firebase.database().ref('/coins/' + firebase.auth().currentUser.uid).set(0);
+            }
+            alert("You have " + data.val() + " coins")
+            coincount.innerHTML = data.val()
+        });
+
+        var userPurchases = firebase.database().ref('/purchases/' + firebase.auth().currentUser.uid)
+        userPurchases.on('value', function(data) {
+            if (data.val() == null || data.val() == "null") {
+                firebase.database().ref('/purchases/' + firebase.auth().currentUser.uid).set(["Tixte Registartion Gift"]);
+            }
+            purcount.innerHTML = "Your Purchases:<br>"
+            for (var i = 0; i < data.val().length; i++) {
+                purcount.innerHTML += data.val()[i] + "<br>"
+            }
+        });
+
+    }
+}).catch(function(error) {
+    alert(error.message);
+});
+  </script>
 
   </footer>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
