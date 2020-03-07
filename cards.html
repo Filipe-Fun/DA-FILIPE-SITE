@@ -144,7 +144,7 @@
  
     <div class="container-fluid">
   <div class="row">
-    <div class="col-sm-6"><br><h2>Order a Card Pack</h2><hr><form action=""><div class="form-group">
+    <div class="col-sm-6"><br><h2>Order a Card Pack</h2><span class="badge badge-info align-top">Cost: 200 FP</span><hr><form action=""><div class="form-group">
                 <label for="name">
                     <h4 style="color:black;">Full Name<span style="color:red;"> *</span></h4>
                     <h6 class="text-gray-900">First and last name - Required for identity purposes</h6>
@@ -172,8 +172,8 @@ guaranteed to get the card you want.</h6>
                     <option value="2020 Spring Pack" disabled="">2020 Spring Pack (COMING SOON) - includes 3 cards, 1 brocure and 1 digital code</option>
            
                 </select>
-            </div></form></div>
-    <div class="col-sm-6"><br><h2>Order Figurines</h2><span class="badge badge-info align-top">Coming Soon</span><hr><form action="#"><div class="form-group">
+            </div><input class="btn btn-primary btn-block btn-lg" type="submit" value="Submit"></form></div>
+    <div class="col-sm-6"><br><h2>Order Figurines [SOON]</h2><span class="badge badge-info align-top">Cost: 650 FP</span><hr><form action="#"><div class="form-group">
                 <label for="name">
                     <h4 style="color:black;">Full Name<span style="color:red;"> *</span></h4>
                     <h6 class="text-gray-900">First and last name - Required for identity purposes</h6>
@@ -187,7 +187,32 @@ guaranteed to get the card you want.</h6>
                 </label>
                 <input class="form-control" games="" id="name" type="text" name="Name" placeholder="youremail@example.com" required="">
             </div>
-      </form></div>
+      <div class="form-group">
+                <label for="selection">
+                    <h4 style="color:black;">Select a Figurine<span style="color:red;">
+                            *</span></h4>
+                    <h6 class="text-gray-900">Figurines are 3D printed and custom-colored, so delivery may take 1-10 days.</h6>
+                </label>
+        <select class="browser-default custom-select" required="" id="figure color" name="figure color">
+                    <option selected="" disabled="">Click to select an option...</option>
+                    <option value="Blue">Deep Blue</option>
+                  <option value="Orange" disabled="">Sunshine Orange</option>
+                    <option value="Green">Hillside Green</option>
+                 <option value="White" disabled="">Ghost White [Semi-Transparent] (UNAVAILABLE)</option>
+                    <option value="Red">Firetruck Red</option>
+           
+                </select>
+                <select class="browser-default custom-select" required="" id="card pack type" name="card pack type">
+                    <option selected="" disabled="">Click to select an option...</option>
+                    <option value="Collectors Starter Pack">Collectors Starter Pack (Series 1) - includes 2 randomized cards, 1 Original Filipe card, 1 brocure and 1 digital code</option>
+                  <option value="Early Bird Starter Pack" disabled="">Early Bird Starter Pack (SOLD OUT) - includes 5 randomized cards, 1 brocure and 1 digital code</option>
+                    <option value="Expansion Pack">Expansion Pack (Series 1) - includes 3 randomized cards</option>
+                 
+                    <option value="2020 Spring Pack" disabled="">2020 Spring Pack (COMING SOON) - includes 3 cards, 1 brocure and 1 digital code</option>
+           
+                </select>
+            </div>
+      <input class="btn btn-primary btn-block btn-lg" type="submit" value="Submit"></form></div>
    
   </div>
 </div>
