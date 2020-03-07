@@ -136,7 +136,12 @@
   <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab"><div class="announcekit-widget"></div></div>
   
   <div class="tab-pane fade" id="order" role="tabpanel" aria-labelledby="order-tab">order pack</div>
-  <div class="tab-pane fade" id="code" role="tabpanel" aria-labelledby="code-tab">Redeem code</div>
+  <div class="tab-pane fade" id="code" role="tabpanel" aria-labelledby="code-tab"><br><div class="input-group mb-3">
+  <input type="text" class="form-control" placeholder="Enter code..." aria-label="Enter code..." aria-describedby="basic-addon2">
+  <div class="input-group-append">
+    <button class="btn btn-outline-primary" type="button">Redeem Code</button>
+  </div>
+</div></div>
   
   <div class="tab-pane fade" id="purchases" role="tabpanel" aria-labelledby="purchases-tab"><p id="purcount"></p></div>
 </div>
@@ -160,6 +165,7 @@
   <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-database.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 
     <script src="points.js"></script>
     <script>
@@ -372,9 +378,10 @@ firebase.auth().getRedirectResult().then(function(result) {
         var userPurchases = firebase.database().ref('/purchases/' + firebase.auth().currentUser.uid)
         userPurchases.on('value', function(data) {
             if (data.val() == null || data.val() == "null") {
-                firebase.database().ref('/purchases/' + firebase.auth().currentUser.uid).set(["Tixte Registartion Gift"]);
+                firebase.database().ref('/purchases/' + firebase.auth().currentUser.uid).set(["Account Creation Promotion (+200 FP)"]);
+              addCoins(200)
             }
-            purcount.innerHTML = "Your Purchases:<br>"
+            purcount.innerHTML = "Your Transactions:<br>"
             for (var i = 0; i < data.val().length; i++) {
                 purcount.innerHTML += data.val()[i] + "<br>"
             }
