@@ -479,13 +479,7 @@ firebase.auth().getRedirectResult().then(function(result) {
             for (var i = 0; i < data.val().length; i++) {
                 purcount.innerHTML += data.val()[i] + "<br>"
             }
-        });
-
-    }
-}).catch(function(error) {
-    alert(error.message);
-});
-  var user = firebase.auth().currentUser;
+          var user = firebase.auth().currentUser;
 var name, email, photoUrl, uid, emailVerified;
 
 if (user != null) {
@@ -497,6 +491,17 @@ if (user != null) {
                    // this value to authenticate with your backend server, if
                    // you have one. Use User.getToken() instead.
 }
+          
+        });
+
+    }
+}).catch(function(error) {
+    alert(error.message);
+});
+  
+  
+  
+  
   </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/core.js"></script>
   </footer>
