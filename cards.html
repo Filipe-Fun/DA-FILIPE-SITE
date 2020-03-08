@@ -402,25 +402,48 @@ var loggedin = false
     appId: "1:549502735262:web:b310c7c2d716f9242e3c8f",
     measurementId: "G-YC2ZQ3XTHX"
   };
+  
 firebase.initializeApp(firebaseConfig);
 var database = firebase.database();
-
-login.onclick = function() {
-    var provider = new firebase.auth.GoogleAuthProvider();
-    firebase.auth().signInWithRedirect(provider);
-}
-var user = firebase.auth().currentUser;
-var name, email, photoUrl, uid, emailVerified;
-
-if (user != null) {
-  name = user.displayName;
-  email = user.email;
-  photoUrl = user.photoURL;
-  emailVerified = user.emailVerified;
-  uid = user.uid;  // The user's ID, unique to the Firebase project. Do NOT use
-                   // this value to authenticate with your backend server, if
-                   // you have one. Use User.getToken() instead.
-}
+var gprov = new firebase.auth.GoogleAuthProvider();
+var gitprov = new firebase.auth.GithubAuthProvider();
+var twprov = new firebase.auth.TwitterAuthProvider();
+login.onclick = function () {
+    firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
+        .then(function () {
+            return firebase.auth().signInWithRedirect(gprov);
+        })
+        .catch(function (error) {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            swal({
+                icon: "warning",
+                title: "Error Logging In",
+                text: error.message
+            });
+        });
+};
+firebase.auth().getRedirectResult().then(function (result) {
+    if (result.credential) {
+        var user = firebase.auth().currentUser;
+        goo = true;
+        window.token = result.credential.accessToken;
+        window.user = result.user;
+        localStorage.setItem("token", window.token);
+        localStorage.setItem("username", window.user.displayName);
+        localStorage.setItem("userimg", user.photoURL);
+        localStorage.setItem("logged", "true");
+    }
+    // The signed-in user info.
+}).catch(function (error) {
+    swal({
+        icon: "warning",
+        title: "Error Signing In",
+        text: "Here is the error we caught:\n" + error
+    });
+});
+  
 function addCoins(amount) {
     // var curr_coins_ref = firebase.database().ref('/coins/' + firebase.auth().currentUser.uid)
     // var curr_coins = parseInt(curr_coins_ref.once('value'))
