@@ -402,48 +402,19 @@ var loggedin = false
     appId: "1:549502735262:web:b310c7c2d716f9242e3c8f",
     measurementId: "G-YC2ZQ3XTHX"
   };
-  
 firebase.initializeApp(firebaseConfig);
 var database = firebase.database();
-var gprov = new firebase.auth.GoogleAuthProvider();
-var gitprov = new firebase.auth.GithubAuthProvider();
-var twprov = new firebase.auth.TwitterAuthProvider();
-login.onclick = function () {
-    firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
-        .then(function () {
-            return firebase.auth().signInWithRedirect(gprov);
-        })
-        .catch(function (error) {
-            // Handle Errors here.
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            swal({
-                icon: "warning",
-                title: "Error Logging In",
-                text: error.message
-            });
-        });
-};
-firebase.auth().getRedirectResult().then(function (result) {
-    if (result.credential) {
-        var user = firebase.auth().currentUser;
+
+login.onclick = function() {
+    var provider = new firebase.auth.GoogleAuthProvider();
+    firebase.auth().signInWithRedirect(provider);
+  var user = firebase.auth().currentUser;
         goo = true;
         window.token = result.credential.accessToken;
         window.user = result.user;
-        localStorage.setItem("token", window.token);
-        localStorage.setItem("username", window.user.displayName);
-        localStorage.setItem("userimg", user.photoURL);
-        localStorage.setItem("logged", "true");
-    }
-    // The signed-in user info.
-}).catch(function (error) {
-    swal({
-        icon: "warning",
-        title: "Error Signing In",
-        text: "Here is the error we caught:\n" + error
-    });
-});
-  
+  localStorage.setItem("uname", window.user.displayName);
+}
+
 function addCoins(amount) {
     // var curr_coins_ref = firebase.database().ref('/coins/' + firebase.auth().currentUser.uid)
     // var curr_coins = parseInt(curr_coins_ref.once('value'))
@@ -481,6 +452,10 @@ firebase.auth().getRedirectResult().then(function(result) {
     if (result.user) {
         window.user = result.user
         window.loggedin = true
+      var user = firebase.auth().currentUser;
+        goo = true;
+        window.token = result.credential.accessToken;
+  localStorage.setItem("uname", window.user.displayName);
 
         name.innerHTML = result.user.displayName
 
@@ -513,12 +488,17 @@ firebase.auth().getRedirectResult().then(function(result) {
             for (var i = 0; i < data.val().length; i++) {
                 purcount.innerHTML += data.val()[i] + "<br>"
             }
+          
         });
 
     }
 }).catch(function(error) {
     alert(error.message);
 });
+  
+  
+  
+  
   </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/core.js"></script>
   </footer>
