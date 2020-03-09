@@ -249,10 +249,15 @@ guaranteed to get the card you want.</h6>
    <h5>Video is a placeholder ad video from promo.com, video copyright promo/slidely</h5></div>
     </div>
 <div id="needtologin">
-  <div id="dashLoadingDiv" style="display:none;"><div class="spinner-border text-primary" role="status">
-  <span class="sr-only"></span>
-</div> Loading your personalized dashboard...</div>
-        <div id="login_btn_1" style="display:block;"><a href="#dashboard" id="login"><button class="btn btn-primary btn-lg my-3" onclick="showDiv()">Login to continue</button></a>
+  
+
+<a href="#dashboard" id="login"><div class="google-btn">
+  <div class="google-icon-wrapper">
+    <img class="google-icon-svg" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
+  </div>
+  <p class="btn-text"><b>Sign in with Google</b></p>
+</div></a>
+       
     </div>
       
     </div>
@@ -538,9 +543,101 @@ document.getElementById("uid").textContent = localStorage.getItem("uname");
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
       <script>window.jQuery || document.write('<script src="/docs/4.4/assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="/docs/4.4/dist/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
   <script>
-    function showDiv() {
-   document.getElementById('dashLoadingDiv').style.display = "block";
-      document.getElementById('login_btn_1').style.display = "none";
-}
+
     </script></body>
+<style>
+  
+.google-btn {
+    margin: 25px;
+    width: 80%;
+    min-width: 184px;
+    max-width: 184px;
+    height: 42px;
+    background-color: #fcfcfc;
+    border-radius: 2px;
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .2);
+    cursor: pointer;
+    cursor: hand;
+    align-self: center;
+    user-select: none;
+    transition: all 400ms ease 0s;
+    display: flex;
+}
+.google-btn .google-icon-wrapper {
+    position: absolute;
+    margin-top: 1px;
+    margin-left: 1px;
+    width: 40px;
+    height: 40px;
+    border-radius: 2px;
+    user-select: none
+}
+.google-btn .google-icon-svg {
+    position: absolute;
+    margin-top: 11px;
+    margin-left: 11px;
+    width: 18px;
+    height: 18px;
+    user-select: none
+}
+.google-btn .btn-text {
+    float: right;
+    margin: 11px 14px 40px 40px;
+    color: #757575;
+    font-size: 14px;
+    letter-spacing: .2px;
+    font-family: Roboto;
+    user-select: none
+}
+.google-btn:hover {
+    box-shadow: 0 3px 8px rgba(117, 117, 117, .5);
+    user-select: none
+}
+.google-btn:active {
+    box-shadow: 0 1px 1px #757575;
+    background: #F8F8F8;
+    color: #fff;
+    user-select: none
+}
+
+.normal-btn {
+    margin: 25px;
+    width: auto;
+    display: inline-block;
+    min-width: auto;
+    max-width: 184px;
+    height: 42px;
+    background-color: #fcfcfc;
+    border-radius: 2px;
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .2);
+    cursor: pointer;
+    cursor: hand;
+    align-self: center;-webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    transition: all 400ms ease 0s
+}
+.normal-btn .btn-text {
+    float: left;
+    margin: 11px 14px 11px 14px;
+    color: #757575;
+    font-size: 14px;
+    letter-spacing: .2px;
+    font-family: Roboto;
+    user-select: none
+}
+.normal-btn:hover {
+    box-shadow: 0 3px 8px rgba(117, 117, 117, .5);
+    user-select: none
+}
+.normal-btn:active {
+    box-shadow: 0 1px 1px #757575;
+    background: #F8F8F8;
+    color: #fff;
+    user-select: none
+}
+  </style>
 </html>
