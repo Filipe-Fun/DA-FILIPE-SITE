@@ -465,6 +465,8 @@ firebase.auth().getRedirectResult().then(function(result) {
             if (window.loggedin == true) {
                 ntl.style.display = "none"
                 logged.style.display = "block"
+              document.getElementById("uname_in").value = localStorage.getItem("uname");
+  document.getElementById("uemail_in").value = localStorage.getItem("uemail");
             }
             if (window.loggedin == false) {
                 ntl.style.display = "block"
@@ -500,8 +502,6 @@ firebase.auth().getRedirectResult().then(function(result) {
   
   
 document.getElementById("uid").textContent = localStorage.getItem("uname");
-  document.getElementById("uname_in").value = localStorage.getItem("uname");
-  document.getElementById("uemail_in").value = localStorage.getItem("uemail");
   
   </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/core.js"></script>
