@@ -458,6 +458,8 @@ firebase.auth().getRedirectResult().then(function(result) {
   localStorage.setItem("uname", window.user.displayName);
         localStorage.setItem("uemail", window.user.email);
       localStorage.setItem("uimg", window.user.photoURL);
+      document.getElementById("uname_in").value = localStorage.getItem("uname");
+  document.getElementById("uemail_in").value = localStorage.getItem("uemail");
 
         name.innerHTML = result.user.displayName
 
@@ -465,8 +467,7 @@ firebase.auth().getRedirectResult().then(function(result) {
             if (window.loggedin == true) {
                 ntl.style.display = "none"
                 logged.style.display = "block"
-              document.getElementById("uname_in").value = localStorage.getItem("uname");
-  document.getElementById("uemail_in").value = localStorage.getItem("uemail");
+              
             }
             if (window.loggedin == false) {
                 ntl.style.display = "block"
