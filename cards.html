@@ -488,6 +488,7 @@ firebase.auth().getRedirectResult().then(function(result) {
       localStorage.setItem("uimg", window.user.photoURL);
       document.getElementById("uname_in").value = localStorage.getItem("uname");
   document.getElementById("uemail_in").value = localStorage.getItem("uemail");
+      document.getElementById("uname_txt").textContent = localStorage.getItem("uname");
 
         name.innerHTML = result.user.displayName
 
