@@ -182,7 +182,7 @@ guaranteed to get the card you want.</h6>
                 <div class="input-group mb-3">
   <input type="text" class="form-control" placeholder="Enter code..." aria-label="Enter code..." aria-describedby="basic-addon2">
   <div class="input-group-append">
-    <button class="btn btn-outline-primary" type="button">Redeem</button>
+    <button class="btn btn-outline-primary" type="button" onclick="promoCode()">Redeem</button>
   </div>
 </div>
             </div><input class="btn btn-primary btn-block btn-lg" type="submit" value="Send Order"></form></div></div>
@@ -481,6 +481,14 @@ function makepurchase(name, amount) {
 
 getmore.onclick = function() {
     addCoins(1)
+}
+  
+  promoCode.onclick = function() {
+    Swal.fire(
+  'Promo Code Submitted',
+  'If the promo code you entered is active, you will receive Filipe Points back on your purchase within 8 hours.',
+  'success'
+)
 }
 
 buything.onclick = function() {
