@@ -176,18 +176,7 @@ guaranteed to get the card you want.</h6>
                     <option value="2020 Spring Pack" disabled="">2020 Spring Pack (COMING SOON) - includes 3 cards, 1 brocure and 1 digital code</option>
            
                 </select>
-            </div><!--<div class="form-group">
-                <label for="email">
-                    <h4 style="color:black;">Use Promo Code</h4>
-                    <h6 class="text-gray-900">If you have a promotional code, you may enter it here. It may take up to 8 hours for a discount to take effect on your account balance.</h6>
-                </label>
-                <div class="input-group mb-3">
-  <input type="text" class="form-control" placeholder="Enter code..." aria-label="Enter code..." aria-describedby="basic-addon2">
-  <div class="input-group-append">
-    <button class="btn btn-outline-primary" type="button" onclick="promoCode()">Redeem</button>
-  </div>
-</div>
-            </div>--><input class="btn btn-primary btn-block btn-lg" type="submit" value="Send Order"></form></div></div>
+            </div><input class="btn btn-primary btn-block btn-lg" type="submit" value="Send Order"></form></div></div>
     
     
     
@@ -244,9 +233,9 @@ guaranteed to get the card you want.</h6>
   </div>
   <div class="tab-pane fade" id="tip" role="tabpanel" aria-labelledby="tip-tab">Card Trade-in's are coming soon. Stay tuned!</div>
   <div class="tab-pane fade" id="code" role="tabpanel" aria-labelledby="code-tab"><br><div class="input-group mb-3">
-  <input type="text" class="form-control" placeholder="Enter code..." aria-label="Enter code..." aria-describedby="basic-addon2">
+  <input type="text" id="pcode_input" class="form-control" placeholder="Enter code..." aria-label="Enter code..." aria-describedby="basic-addon2">
   <div class="input-group-append">
-    <button class="btn btn-outline-primary" type="button">Redeem Code</button>
+    <button class="btn btn-outline-primary" type="button" onclick="pCheck()">Redeem Code</button>
   </div>
 </div></div>
   
@@ -279,6 +268,7 @@ guaranteed to get the card you want.</h6>
 
     <script src="points.js"></script>
     <script>
+      
 document.getElementById("movie").addEventListener("ended", function(){alert("Congrats! You have earned a coin!"),addCoins(1), $('#movie').hide();}, true);
             </script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -553,7 +543,16 @@ firebase.auth().getRedirectResult().then(function(result) {
   
   
 document.getElementById("uid").textContent = localStorage.getItem("uname");
-  
+  //promocode script
+  function pCheck() {
+  var pcode, text;
+  pcode = document.getElementById("pcode_input").value;
+  if (pcode === 'test') {
+    alert('code is valid')
+  } else {
+    alert('code invalid')
+  }
+}
   </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/core.js"></script>
   </footer>
