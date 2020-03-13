@@ -552,7 +552,37 @@ document.getElementById("uid").textContent = localStorage.getItem("uname");
         mCode.on('value', function(data) {
             if (data.val() == null || data.val() == "null") {
                 firebase.database().ref('/codes/march2020/' + firebase.auth().currentUser.uid).set(["March Promo Code (+50 FP)"]);
-              addCoins(50)
+              makepurchase("March Promo Code (+50 FP)", -50)
+              Swal.fire(
+  'Success!',
+  'Code has been successfully redeemed!',
+  'success'
+)
+            }else {
+              Swal.fire(
+  'Error',
+  'You have already redeemed this code!',
+  'error'
+)
+            }
+          
+        });
+     
+
+  } else {
+    Swal.fire(
+  'Error',
+  'The code you entered is invalid!',
+  'error'
+)
+  }
+   if (pcode === 'onetimetest') {
+    
+      var mCode = firebase.database().ref('/codes/onetimetest/')
+        mCode.on('value', function(data) {
+            if (data.val() == null || data.val() == "null") {
+                firebase.database().ref('/codes/onetimetest/' + firebase.auth().currentUser.uid).set(["March Promo Code (+50 FP)"]);
+              makepurchase("Test One-Time Code Thing (+9999)", -9999)
               Swal.fire(
   'Success!',
   'Code has been successfully redeemed!',
@@ -582,7 +612,7 @@ document.getElementById("uid").textContent = localStorage.getItem("uname");
         mCode.on('value', function(data) {
             if (data.val() == null || data.val() == "null") {
                 firebase.database().ref('/codes/test2/' + firebase.auth().currentUser.uid).set(["Test Promo Code (+50 FP)"]);
-              addCoins(50)
+              makepurchase("Admin Thing (+70)", -70)
                Swal.fire(
   'Success!',
   'Code has been successfully redeemed!',
