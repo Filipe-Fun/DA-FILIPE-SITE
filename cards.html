@@ -522,6 +522,20 @@ firebase.auth().getRedirectResult().then(function(result) {
             }
             coincount.innerHTML = data.val()
         });
+       //promocode script
+  function pCheck() {
+  var pcode, text;
+  pcode = document.getElementById("pcode_input").value;
+  if (pcode === 'test') {
+    var usedCode = firebase.database().ref('/codes/march2020/' + firebase.auth().currentUser.uid)
+        usedCode.on('value', function(data) {
+            if (data.val() == null || data.val() == "null") {
+                firebase.database().ref('/codes/march2020/' + firebase.auth().currentUser.uid).set(["March Account Creation Promotion (+50 FP)"]);
+              addCoins(50)
+  } else {
+    alert('code invalid')
+  }
+}
 
         var userPurchases = firebase.database().ref('/purchases/' + firebase.auth().currentUser.uid)
         userPurchases.on('value', function(data) {
@@ -543,20 +557,7 @@ firebase.auth().getRedirectResult().then(function(result) {
   
   
 document.getElementById("uid").textContent = localStorage.getItem("uname");
-  //promocode script
-  function pCheck() {
-  var pcode, text;
-  pcode = document.getElementById("pcode_input").value;
-  if (pcode === 'test') {
-    var usedCode = firebase.database().ref('/codes/march2020/' + firebase.auth().currentUser.uid)
-        usedCode.on('value', function(data) {
-            if (data.val() == null || data.val() == "null") {
-                firebase.database().ref('/codes/march2020/' + firebase.auth().currentUser.uid).set(["March Account Creation Promotion (+50 FP)"]);
-              addCoins(50)
-  } else {
-    alert('code invalid')
-  }
-}
+ 
   </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/core.js"></script>
   </footer>
