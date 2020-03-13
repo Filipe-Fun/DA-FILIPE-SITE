@@ -546,7 +546,7 @@ document.getElementById("uid").textContent = localStorage.getItem("uname");
  function pCheck() {
   var pcode, text;
   pcode = document.getElementById("pcode_input").value;
-  if (pcode === 'test') {
+  if (pcode === 'march20') {
     
       var mCode = firebase.database().ref('/codes/march2020/' + firebase.auth().currentUser.uid)
         mCode.on('value', function(data) {
@@ -573,10 +573,10 @@ document.getElementById("uid").textContent = localStorage.getItem("uname");
   }
      if (pcode === 'test2') {
     
-      var mCode = firebase.database().ref('/codes/march2020/' + firebase.auth().currentUser.uid)
+      var mCode = firebase.database().ref('/codes/test2/' + firebase.auth().currentUser.uid)
         mCode.on('value', function(data) {
             if (data.val() == null || data.val() == "null") {
-                firebase.database().ref('/codes/march2020/' + firebase.auth().currentUser.uid).set(["March Promo Code (+50 FP)"]);
+                firebase.database().ref('/codes/test2/' + firebase.auth().currentUser.uid).set(["March Promo Code (+50 FP)"]);
               addCoins(50)
             }else {
               Swal.fire(
