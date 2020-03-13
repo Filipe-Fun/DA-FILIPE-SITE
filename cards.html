@@ -553,12 +553,22 @@ document.getElementById("uid").textContent = localStorage.getItem("uname");
             if (data.val() == null || data.val() == "null") {
                 firebase.database().ref('/codes/march2020/' + firebase.auth().currentUser.uid).set(["March Promo Code (+50 FP)"]);
               addCoins(50)
+            }else {
+              Swal.fire(
+  'Error',
+  'You have already redeemed this code!',
+  'error'
+)
             }
           
         });
 
   } else {
-    alert('code invalid')
+    Swal.fire(
+  'Error',
+  'The code you entered is invalid!',
+  'error'
+)
   }
 }
   </script>
