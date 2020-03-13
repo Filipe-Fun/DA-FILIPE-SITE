@@ -479,20 +479,12 @@ function makepurchase(name, amount) {
     });
 }
 
-getmore.onclick = function() {
-    addCoins(1)
-}
-  
   function promoCode() {
     Swal.fire(
   'Promo Code Submitted',
   'If the promo code you entered is active, you will receive Filipe Points back on your purchase within 8 hours.',
   'success'
 )
-}
-
-buything.onclick = function() {
-    makepurchase("Thing", 1)
 }
 
 firebase.auth().getRedirectResult().then(function(result) {
