@@ -565,8 +565,8 @@ document.getElementById("uid").textContent = localStorage.getItem("uname");
     
     if (pcode === '2') {
     
-      var mCode = firebase.database().ref('/codes/test2/' + firebase.auth().currentUser.uid)
-        mCode.on('value', function(data) {
+      var test2 = firebase.database().ref('/codes/test2/' + firebase.auth().currentUser.uid)
+        test2.on('value', function(data) {
             if (data.val() == null || data.val() == "null") {
                 firebase.database().ref('/codes/test2/' + firebase.auth().currentUser.uid).set(["March Promo Code (+50 FP)"]);
               addCoins(50)
@@ -582,8 +582,8 @@ document.getElementById("uid").textContent = localStorage.getItem("uname");
       
       if (pcode === '3') {
     
-      var mCode = firebase.database().ref('/codes/test3/' + firebase.auth().currentUser.uid)
-        mCode.on('value', function(data) {
+      var test3 = firebase.database().ref('/codes/test3/' + firebase.auth().currentUser.uid)
+        test3.on('value', function(data) {
             if (data.val() == null || data.val() == "null") {
                 firebase.database().ref('/codes/test3/' + firebase.auth().currentUser.uid).set(["March Promo Code (+50 FP)"]);
               addCoins(50)
