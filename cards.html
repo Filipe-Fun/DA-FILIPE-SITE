@@ -579,23 +579,7 @@ document.getElementById("uid").textContent = localStorage.getItem("uname");
             }
           
         });
-      
-      if (pcode === '3') {
-    
-      var test3 = firebase.database().ref('/codes/test3/' + firebase.auth().currentUser.uid)
-        test3.on('value', function(data) {
-            if (data.val() == null || data.val() == "null") {
-                firebase.database().ref('/codes/test3/' + firebase.auth().currentUser.uid).set(["March Promo Code (+50 FP)"]);
-              addCoins(50)
-            }else {
-              Swal.fire(
-  'Error',
-  'You have already redeemed this code!',
-  'error'
-)
-            }
-          
-        });
+     
 
   } else {
     Swal.fire(
