@@ -238,7 +238,7 @@ guaranteed to get the card you want.</h6>
       
   
   </div>
-  <div class="tab-pane fade" id="tip" role="tabpanel" aria-labelledby="tip-tab">Coming very soon... stay tuned!</div>
+  <div class="tab-pane fade" id="tip" role="tabpanel" aria-labelledby="tip-tab"><p id="dcards"><b>You do not have any digital cards yet.</b> <br>You can start collecting digital cards by redeeming digital codes found in Filipe Card packs.</p></div>
   <div class="tab-pane fade" id="code" role="tabpanel" aria-labelledby="code-tab"><br><p>You can redeem site promo codes or digital codes from a Filipe Card pack.</p><div class="input-group mb-3">
   <input type="text" id="pcode_input" class="form-control" placeholder="Enter code..." aria-label="Enter code..." aria-describedby="basic-addon2">
   <div class="input-group-append">
@@ -250,12 +250,12 @@ guaranteed to get the card you want.</h6>
 </div>
         
         <p id="purcount"></p>
-       <div id="hidden"> <button id="getmore">Click Here to Get 1 More Coin</button><br>
-        <button id="buything">Click Here to Buy a Thing for 1 coin</button><br>
-      <h1>Watch a video for a free coin!</h1>
-        <p>Click the video to begin your reward ad</p>
-        <video id="movie" src="https://ak01-video-cdn.slidely.com/promoVideos/videos/5d/2d/5d2d8c29861eda03887b76b2/preview.mp4" onclick="this.play()" width="400" oncontextmenu="return false;"></video>
-   <h5>Video is a placeholder ad video from promo.com, video copyright promo/slidely</h5></div>
+       <div id="hidden"> <br>
+        <br>
+     
+        
+        <video id="movie" src="" onclick="" width="400" oncontextmenu="return false;"></video>
+   </div>
     </div>
 <div id="needtologin">
   
@@ -427,6 +427,7 @@ var buything = document.getElementById("buything")
 var name = document.getElementById("name")
 var coincount = document.getElementById("coins")
 var purcount = document.getElementById("purcount")
+var dcards = document.getElementById("dcards")
 
 var loggedin = false
 
@@ -539,6 +540,14 @@ firebase.auth().getRedirectResult().then(function(result) {
             purcount.innerHTML = "Your Transactions:<br>"
             for (var i = 0; i < data.val().length; i++) {
                 purcount.innerHTML += data.val()[i] + "<br>"
+            }
+          
+        });
+     var dCa = firebase.database().ref('/digcards/' + firebase.auth().currentUser.uid)
+        dCa.on('value', function(data) {
+            dcards.innerHTML = "<h4>Your Digital Card Collection:</h4><br>"
+            for (var i = 0; i < data.val().length; i++) {
+                dcards.innerHTML += data.val()[i] + ""
             }
           
         });
