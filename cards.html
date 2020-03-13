@@ -114,7 +114,7 @@
      <h2 class="display-5">Filipe Cards - Dashboard</h2>
       <div id="logged1">
         
-        <p>Hello, <span id="uname_txt">{Looks like something went wrong. Retry?}</span>! <br>You have <span id="coins">0</span> Filipe Points.</p>
+        <p>Hello, <span id="uname_txt">{Looks like something went wrong. Retry?}</span>! <br><b>You have <span id="coins">0</span> Filipe Points.</b></p>
         <ul class="nav nav-tabs" id="myTab" role="tablist">
   <li class="nav-item">
     <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
@@ -140,7 +140,124 @@
 </ul>
 <div class="tab-content" id="myTabContent">
   
-  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab"><div class="announcekit-widget"></div></div>
+  <br><h4>Filipe Cards: Announcement Center</h4><br><div class="tab-pane fade active show" id="home" role="tabpanel" aria-labelledby="home-tab"><center class="card card-body"><br><h5>Update: Sumo Filipe physical card has been canceled :(</h5><p>As of March 13, 2020 the Sumo Filipe card has been canceled due to resource shortage. The cancelation ONLY includes the physical card. You can still get the digital version of the card by redeeming the new code <b>'getsumo'</b> via the redeem tab!</p>
+<font size="2" class="card-footer text-muted">Published on March 13th by Sad Filipe</font></center>
+<center class="card card-body"><br><h5>Welcome to March 2020. Its time for a new promocode.</h5><p>Say hello to the month of Filipe Card releases! Be sure to redeem the code <b>'march20'</b> from the Redeem tab for a <b>FREE 50 Filipe Points!</b> 
+<br>(this promocode will only be available through March 30th, 2020)</p>
+<font size="2" class="card-footer text-muted">Published on March 10th by News Reporter Filipe</font></center><br>
+<center class="card card-body"><br><h5>Introducing the NEW Filipe Card Dashboard!</h5><p>Through your dashboard, you can order Filipe Cards, manager your Points balance and transactions, redeem special codes from promotional locations or card packs, and finally... you can collect all new <b>Digital Cards</b> from real-life packs!</p>
+<font size="2" class="card-footer text-muted">Published on March 5th by Marketer Filipe</font></center></div>
+  
+  <div class="tab-pane fade" id="order" role="tabpanel" aria-labelledby="order-tab">
+ 
+    <div class="container-fluid">
+  <div class="row">
+    
+    <div class="col-sm-6"><br><h2>Order a Card Pack</h2><span class="badge badge-info align-top">Cost: 200 Filipe Points</span><hr>
+      <button type="button" class="btn btn-outline-primary" data-toggle="collapse" data-target="#ordercardform"><h3>Fill Out the Form</h3></button><br><div id="ordercardform" class="collapse text-center col-sm-12" style="margin-top:5%"><form action=""><div class="form-group">
+                <label for="name">
+                    <h4 style="color:black;">Full Name<span style="color:red;"> *</span></h4>
+                    <h6 class="text-gray-900">This is auto-filled based on your Google Account information.</h6>
+                </label>
+                <input class="form-control" games="" id="uname_in" disabled="" type="text" name="Name" placeholder="Google Auth Failed - Try Again?" required="">
+            </div><div class="form-group">
+                <label for="email">
+                    <h4 style="color:black;">Email Address<span style="color:red;"> *</span></h4>
+                    <h6 class="text-gray-900">This is auto-filled based on your Google Account information.</h6>
+                </label>
+                <input class="form-control" games="" id="uemail_in" disabled="" type="text" name="Email" placeholder="Google Auth Failed - Try Again?" required="">
+            </div><div class="form-group">
+                <label for="selection">
+                    <h4 style="color:black;">Select a Card Pack Type<span style="color:red;">
+                            *</span></h4>
+                    <h6 class="text-gray-900">Cards included with each pack are randomized. You are not 
+guaranteed to get the card you want.</h6>
+                </label>
+                <select required="" class="browser-default custom-select" id="card pack type" name="card pack type">
+                    <option selected="" disabled="">Click to select an option...</option>
+                    <option value="Collectors Starter Pack">Collectors Starter Pack (Series 1) - includes 2 randomized cards, 1 Original Filipe card, 1 brocure and 1 digital code</option>
+                  <option value="Early Bird Starter Pack" disabled="">Early Bird Starter Pack (SOLD OUT) - includes 5 randomized cards, 1 brocure and 1 digital code</option>
+                    <option value="Expansion Pack">Expansion Pack (Series 1) - includes 3 randomized cards</option>
+                 
+                    <option value="2020 Spring Pack" disabled="">2020 Spring Pack (COMING SOON) - includes 3 cards, 1 brocure and 1 digital code</option>
+           
+                </select>
+            </div><!--<div class="form-group">
+                <label for="email">
+                    <h4 style="color:black;">Use Promo Code</h4>
+                    <h6 class="text-gray-900">If you have a promotional code, you may enter it here. It may take up to 8 hours for a discount to take effect on your account balance.</h6>
+                </label>
+                <div class="input-group mb-3">
+  <input type="text" class="form-control" placeholder="Enter code..." aria-label="Enter code..." aria-describedby="basic-addon2">
+  <div class="input-group-append">
+    <button class="btn btn-outline-primary" type="button" onclick="promoCode()">Redeem</button>
+  </div>
+</div>
+            </div>--><input class="btn btn-primary btn-block btn-lg" type="submit" value="Send Order"></form></div></div>
+    
+    
+    
+    
+    <div class="col-sm-6"><br><h2>Order Figurines [SOON]</h2><span class="badge badge-info align-top">Cost: 650 Filipe Points</span><hr><button disabled="" type="button" class="btn btn-outline-primary" data-toggle="collapse" data-target="#orderfigform"><h3>Fill Out the Form</h3></button><br><div id="orderfigform" class="collapse text-center col-sm-12" style="margin-top:5%"><form action="#"><div class="form-group">
+                <label for="name">
+                    <h4 style="color:black;">Full Name<span style="color:red;"> *</span></h4>
+                    <h6 class="text-gray-900">First and last name - Required for identity purposes</h6>
+                </label>
+                <input class="form-control" games="" id="name" type="text" name="Name" placeholder="Your Full Name" required="">
+            </div>
+      <div class="form-group">
+                <label for="email">
+                    <h4 style="color:black;">Email Address<span style="color:red;"> *</span></h4>
+                    <h6 class="text-gray-900">Use an email you check often!</h6>
+                </label>
+                <input class="form-control" games="" id="name" type="text" name="Name" placeholder="youremail@example.com" required="">
+            </div>
+      <div class="form-group">
+                <label for="selection">
+                    <h4 style="color:black;"> Figurine Customization<span style="color:red;">
+                            *</span></h4>
+                    <h6 class="text-gray-900">Figurines are 3D printed and custom-colored, so delivery may take 1-10 days. Each kind comes with a Filipe charecter and 1 accessory based on the theme.</h6>
+                </label>
+        <select required="" class="browser-default custom-select" id="figure color" name="figure color">
+                    <option selected="" disabled="">Select a figurine color...</option>
+                    <option value="Blue">Deep Blue</option>
+                  <option value="Orange">Sunshine Orange</option>
+                    <option value="Green">Hillside Green</option>
+                 <option value="White" disabled="">Ghost White [Semi-Transparent] (UNAVAILABLE)</option>
+                    <option value="Red">Firetruck Red</option>
+           
+                </select>
+      <br>
+                <select required="" class="browser-default custom-select" id="card pack type" name="card pack type">
+                    <option selected="" disabled="">Select a figurine type...</option>
+                    <option value="Original Filipe [Figurine]">Original Filipe [Comes with "extra hat" accessory]</option>
+                  <option value="Painter Filipe [Figurine]">Painter Filipe [Comes with "paint bucket" accessory]</option>
+                    <option value="Alien Filipe [Figurine]">Alien Filipe [Comes with "ufo" accessory]</option>
+                 
+                    <option value="Clown Filipe [Figurine]">Clown Filipe [Comes with "bowling pin" accessory]</option>
+           
+                </select>
+            </div>
+      <input class="btn btn-primary btn-block btn-lg disabled" type="submit" value="Submit"></form></div></div>
+   
+  </div>
+</div>
+      
+      
+    
+      
+  
+  </div>
+  <div class="tab-pane fade" id="tip" role="tabpanel" aria-labelledby="tip-tab">Card Trade-in's are coming soon. Stay tuned!</div>
+  <div class="tab-pane fade" id="code" role="tabpanel" aria-labelledby="code-tab"><br><div class="input-group mb-3">
+  <input type="text" class="form-control" placeholder="Enter code..." aria-label="Enter code..." aria-describedby="basic-addon2">
+  <div class="input-group-append">
+    <button class="btn btn-outline-primary" type="button">Redeem Code</button>
+  </div>
+</div></div>
+  
+  <div class="tab-pane fade" id="purchases" role="tabpanel" aria-labelledby="purchases-tab"><p id="purcount"></p></div>
+</div>
   
   <div class="tab-pane fade" id="order" role="tabpanel" aria-labelledby="order-tab">
  
