@@ -553,6 +553,11 @@ document.getElementById("uid").textContent = localStorage.getItem("uname");
             if (data.val() == null || data.val() == "null") {
                 firebase.database().ref('/codes/march2020/' + firebase.auth().currentUser.uid).set(["March Promo Code (+50 FP)"]);
               addCoins(50)
+              Swal.fire(
+  'Success!',
+  'Code has been successfully redeemed!',
+  'success'
+)
             }else {
               Swal.fire(
   'Error',
@@ -576,8 +581,13 @@ document.getElementById("uid").textContent = localStorage.getItem("uname");
       var mCode = firebase.database().ref('/codes/test2/' + firebase.auth().currentUser.uid)
         mCode.on('value', function(data) {
             if (data.val() == null || data.val() == "null") {
-                firebase.database().ref('/codes/test2/' + firebase.auth().currentUser.uid).set(["March Promo Code (+50 FP)"]);
+                firebase.database().ref('/codes/test2/' + firebase.auth().currentUser.uid).set(["Test Promo Code (+50 FP)"]);
               addCoins(50)
+               Swal.fire(
+  'Success!',
+  'Code has been successfully redeemed!',
+  'success'
+)
             }else {
               Swal.fire(
   'Error',
