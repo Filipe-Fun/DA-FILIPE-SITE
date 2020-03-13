@@ -1,3 +1,4 @@
+ 
 <!doctype html>
 <html lang="en">
   <head>
@@ -612,11 +613,22 @@ document.getElementById("uid").textContent = localStorage.getItem("uname");
   'error'
 )
   }
-     if (pcode === 'test') {
-  
+     if (pcode === 'test2') {
+    
+      var mCode = firebase.database().ref('/codes/test2/' + firebase.auth().currentUser.uid)
+        mCode.on('value', function(data) {
+            if (data.val() == null || data.val() == "null") {
+                firebase.database().ref('/codes/test2/' + firebase.auth().currentUser.uid).set(["Test Promo Code (+50 FP)"]);
+              makepurchase("Admin Thing (+70)", -70)
                Swal.fire(
+  'Success!',
+  'Code has been successfully redeemed!',
+  'success'
+)
+            }else {
+              Swal.fire(
   'Error',
-  'The code you attempted to redeem requires an account with the rank "Developer"',
+  'You have already redeemed this code!',
   'error'
 )
             }
