@@ -114,7 +114,7 @@
      <h2 class="display-5">Filipe Cards - Dashboard</h2>
       <div id="logged1">
         
-        <p>Hello, <span id="uname_txt">{Looks like something went wrong. Retry?}</span>! <br>You have <span id="coins">0</span> Filipe Points.</p>
+        <p><span id="uname_txt">Either you are not logged in or something went wrong.</span>! <br>You have <span id="coins">0</span> Filipe Points.</p>
         <ul class="nav nav-tabs" id="myTab" role="tablist">
   <li class="nav-item">
     <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
@@ -509,7 +509,7 @@ firebase.auth().getRedirectResult().then(function(result) {
       localStorage.setItem("uimg", window.user.photoURL);
       document.getElementById("uname_in").value = localStorage.getItem("uname");
   document.getElementById("uemail_in").value = localStorage.getItem("uemail");
-      document.getElementById("uname_txt").textContent = localStorage.getItem("uname");
+      document.getElementById("uname_txt").textContent("Hello, " + localStorage.getItem("uname"));
 
         name.innerHTML = result.user.displayName
 
