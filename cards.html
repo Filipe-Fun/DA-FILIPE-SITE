@@ -1,4 +1,3 @@
- 
 <!doctype html>
 <html lang="en">
   <head>
@@ -535,7 +534,7 @@ firebase.auth().getRedirectResult().then(function(result) {
         });
      var dCa = firebase.database().ref('/digcards/' + firebase.auth().currentUser.uid)
         dCa.on('value', function(data) {
-            dcards.innerHTML = "<h4>Your Digital Card Collection</h4><p>You can view all the digital cards you've collected here. Click on a digital card to learn more about it.</p><b><a data-toggle="collapse" data-target="#dcards_faq">How do I get digital cards?</a></b><br><p id="dcards_faq" class="collapse text-center col-sm-12" style="margin-top:5%">You can get Digital Filipe Cards by redeeming Digital Codes found in Filipe Card Packs OR you can redeem site-wide promotional codes to get free digital cards. Unlike physical cards, digital cards can not be exchanged, sold or traded in any way.</p><br>"
+            dcards.innerHTML = "<h4>Your Digital Card Collection:</h4><br>"
             for (var i = 0; i < data.val().length; i++) {
                 dcards.innerHTML += data.val()[i] + ""
             }
