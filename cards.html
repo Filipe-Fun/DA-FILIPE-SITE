@@ -540,7 +540,7 @@ document.getElementById("uid").textContent = localStorage.getItem("uname");
             if (data.val() == null || data.val() == "null") {
                 firebase.database().ref('/codes/getsumo/' + firebase.auth().currentUser.uid).set(["Sumo Digital Card Promotion (FREE)"]);
               makepurchase("Sumo Digital Card Promotion (FREE)", 0)
-              getcard(<a href="#"><img style="width:260px;" src="https://cdn.filipe.fun/cards/birthday_new.svg"><br></a>, 0)
+              getcard(Sumo, 0)
               Swal.fire(
   'Success!',
   'Code has been successfully redeemed!',
