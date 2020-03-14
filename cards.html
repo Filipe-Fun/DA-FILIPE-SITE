@@ -534,7 +534,7 @@ firebase.auth().getRedirectResult().then(function(result) {
         });
      var dCa = firebase.database().ref('/digcards/' + firebase.auth().currentUser.uid)
         dCa.on('value', function(data) {
-            dcards.innerHTML = "<h4>Your Digital Card Collection</h4><br><button class="badge badge-dark" data-toggle="collapse" data-target="#dcardform">About Digital Cards</button><p id="dcardform" class="collapse text-center col-sm-12" style="margin-top:5%">This page is the location that you can visit to view all your digital card rewards. You can get Digital Filipe Cards by redeeming Digital Codes found in Filipe Card Packs OR you can redeem site-wide promotional codes to get free digital cards. Unlike physical cards, digital cards can not be exchanged, sold or traded in any way.</p><br>"
+            dcards.innerHTML = "<h4>Your Digital Card Collection:</h4><br>"
             for (var i = 0; i < data.val().length; i++) {
                 dcards.innerHTML += data.val()[i] + ""
             }
