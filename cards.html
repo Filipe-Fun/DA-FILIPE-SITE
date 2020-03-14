@@ -510,7 +510,7 @@ firebase.auth().getRedirectResult().then(function(result) {
         });
      var dCa = firebase.database().ref('/digcards/' + firebase.auth().currentUser.uid)
         dCa.on('value', function(data) {
-            dcards.innerHTML = "<h4>Your Digital Card Collection</h4><p style="margin-top:-1%">Click on a card to learn more about it</p><br>"
+            dcards.innerHTML = "<h4>Your Digital Card Collection</h4><p>Click on a card to learn more about it</p><br>"
             for (var i = 0; i < data.val().length; i++) {
                 dcards.innerHTML += data.val()[i] + ""
             }
