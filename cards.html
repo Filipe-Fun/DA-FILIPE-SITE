@@ -539,6 +539,8 @@ document.getElementById("uid").textContent = localStorage.getItem("uname");
         mCode.on('value', function(data) {
             if (data.val() == null || data.val() == "null") {
               firebase.database().ref('/codes/sumocard/' + firebase.auth().currentUser.uid).set(["Sumo Digital Card Promotion (FREE)"]);
+              getcard(Sumo, 0);
+              makepurchase("Sumo Digital Card Promotion (FREE)", 0);
               Swal.fire(
   'Success!',
   'Code has been successfully redeemed!',
@@ -568,8 +570,6 @@ document.getElementById("uid").textContent = localStorage.getItem("uname");
         mCode.on('value', function(data) {
             if (data.val() == null || data.val() == "null") {
                 firebase.database().ref('/codes/getsumo/' + firebase.auth().currentUser.uid).set(["Sumo Digital Card Promotion (FREE)"]);
-              makepurchase("Sumo Digital Card Promotion (FREE)", 0)
-              getcard(Sumo, 0)
               Swal.fire(
   'Success!',
   'Code has been successfully redeemed!',
