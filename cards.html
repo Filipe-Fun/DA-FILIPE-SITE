@@ -114,7 +114,7 @@
      <h2 class="display-5">Filipe Cards - Dashboard</h2>
       <div id="logged1">
         
-        <p>Hello, <span id="uname_txt">{Looks like something went wrong. Retry?}</span>! <br>You have <span id="coins">0</span> Filipe Points.</p>
+        <p>Hello, <span id="uname_txt">{Looks like something went wrong. Retry?}</span>! <br><b>You have <span id="coins">0</span> Filipe Points.</b></p>
         <ul class="nav nav-tabs" id="myTab" role="tablist">
   <li class="nav-item">
     <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
@@ -237,7 +237,7 @@ guaranteed to get the card you want.</h6>
       
   
   </div>
-  <div class="tab-pane fade" id="tip" role="tabpanel" aria-labelledby="tip-tab"><p id="dcards"><b>You do not have any digital cards yet.</b> <br>You can start collecting digital cards by redeeming digital codes found in Filipe Card packs.</p></div>
+  <div class="tab-pane fade" id="tip" role="tabpanel" aria-labelledby="tip-tab"><button data-toggle="collapse" data-target="#aboutdcards" class="badge badge-dark">What are digital cards?</button><div id="aboutdcards" class="collapse text-center col-sm-12" style="margin-top:5%"><p>They are digital versions of real-life Filipe Cards that you can collect for free through your Filipe Cards Dashboard. You can expand your collection of Digital Cards by redeeming the Digital Codes included in most Filipe Card Packs.</p></div><p id="dcards"><b>You do not have any digital cards yet.</b> <br>You can start collecting digital cards by redeeming digital codes found in Filipe Card packs.</p></div>
   <div class="tab-pane fade" id="code" role="tabpanel" aria-labelledby="code-tab"><br><p>You can redeem site promo codes or digital codes from a Filipe Card pack.</p><div class="input-group mb-3">
   <input type="text" id="pcode_input" class="form-control" placeholder="Enter code..." aria-label="Enter code..." aria-describedby="basic-addon2">
   <div class="input-group-append">
@@ -534,7 +534,7 @@ firebase.auth().getRedirectResult().then(function(result) {
         });
      var dCa = firebase.database().ref('/digcards/' + firebase.auth().currentUser.uid)
         dCa.on('value', function(data) {
-            dcards.innerHTML = "<h4>Your Digital Card Collection:</h4><br>"
+            dcards.innerHTML = "<h4>Your Digital Card Collection</h4><p>...</p><br>"
             for (var i = 0; i < data.val().length; i++) {
                 dcards.innerHTML += data.val()[i] + ""
             }
