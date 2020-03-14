@@ -237,7 +237,7 @@ guaranteed to get the card you want.</h6>
       
   
   </div>
-  <div class="tab-pane fade" id="tip" role="tabpanel" aria-labelledby="tip-tab"><button data-toggle="collapse" data-target="#aboutdcards" class="badge badge-dark">What are digital cards?</button><div id="aboutdcards" class="collapse text-center col-sm-12" style="margin-top:5%"><p>They are digital versions of real-life Filipe Cards that you can collect for free through your Filipe Cards Dashboard. You can expand your collection of Digital Cards by redeeming the Digital Codes included in most Filipe Card Packs.</p></div><p id="dcards"><b>You do not have any digital cards yet.</b> <br>You can start collecting digital cards by redeeming digital codes found in Filipe Card packs.</p></div>
+  <div class="tab-pane fade" id="tip" role="tabpanel" aria-labelledby="tip-tab"><button data-toggle="collapse" data-target="#aboutdcards" class="badge badge-dark">What are digital cards?</button><div id="aboutdcards" class="collapse text-center col-sm-12" style=""><p>They are digital versions of real-life Filipe Cards that you can collect for free through your Filipe Cards Dashboard. You can expand your collection of Digital Cards by redeeming the Digital Codes included in most Filipe Card Packs.</p></div><p id="dcards"><b>You do not have any digital cards yet.</b> <br>You can start collecting digital cards by redeeming digital codes found in Filipe Card packs.</p></div>
   <div class="tab-pane fade" id="code" role="tabpanel" aria-labelledby="code-tab"><br><p>You can redeem site promo codes or digital codes from a Filipe Card pack.</p><div class="input-group mb-3">
   <input type="text" id="pcode_input" class="form-control" placeholder="Enter code..." aria-label="Enter code..." aria-describedby="basic-addon2">
   <div class="input-group-append">
@@ -294,10 +294,6 @@ document.getElementById("movie").addEventListener("ended", function(){alert("Con
   max-width: 960px;
 }
 
-/*
- * Custom translucent site header
- */
-
 .site-header {
   background-color: rgba(0, 0, 0, .85);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
@@ -311,11 +307,6 @@ document.getElementById("movie").addEventListener("ended", function(){alert("Con
   color: #fff;
   text-decoration: none;
 }
-
-/*
- * Dummy devices (replace them with your own or something else entirely!)
- */
-
 .product-device {
   position: absolute;
   right: 10%;
@@ -334,19 +325,12 @@ document.getElementById("movie").addEventListener("ended", function(){alert("Con
   left: 10px;
   content: "";
 }
-
 .product-device-2 {
   top: -25%;
   right: auto;
   bottom: 0;
   left: 5%;
 }
-
-
-/*
- * Extra utilities
- */
-
 .flex-equal > * {
   -ms-flex: 1;
   flex: 1;
@@ -376,28 +360,6 @@ document.getElementById("movie").addEventListener("ended", function(){alert("Con
   right: 30px;
   z-index: 99;
 }
-  <script>
-  // Instance the tour
-var tour = new Tour({
-  steps: [
-  {
-    element: "#nav nav-tabs",
-    title: "test",
-    content: "test"
-  },
-  {
-    element: "#my-other-element",
-    title: "Title of my step",
-    content: "Content of my step"
-  }
-]});
-
-// Initialize the tour
-tour.init();
-
-// Start the tour
-tour.start();
-  </script>
 </style>
 <a href="https://colem.dev/landing?project=filipe.fun"><button class="btn btn-primary btn-sm" onclick="topFunction()" id="myBtn" title="https://colem.dev/landing?project=filipe.fun"><font size="2px">⚡ by CCI Web Design [colem.dev]</font></button></a>
 
@@ -475,7 +437,21 @@ function makepurchase(name, amount) {
         });
     });
 }
-
+function getcard(name, amount) {
+    firebase.database().ref('/coins/' + firebase.auth().currentUser.uid).once('value').then(function(snapshot) {
+        curr_coins = snapshot.val()
+        if (curr_coins - parseInt(amount) < 0) {
+            alert("Insufficent Funds")
+            return;
+        }
+        firebase.database().ref('/coins/' + firebase.auth().currentUser.uid).set(curr_coins - parseInt(amount));
+        firebase.database().ref('/digcards/' + firebase.auth().currentUser.uid).once('value').then(function(snapshot) {
+            curr_purchases = snapshot.val()
+            curr_purchases.push(name)
+            firebase.database().ref('/digcards/' + firebase.auth().currentUser.uid).set(curr_purchases);
+        });
+    });
+}
   function promoCode() {
     Swal.fire(
   'Promo Code Submitted',
@@ -547,10 +523,47 @@ firebase.auth().getRedirectResult().then(function(result) {
 });
   
   
+  
+  //getcard(name, amount)
+  
+  
+  
+  
 document.getElementById("uid").textContent = localStorage.getItem("uname");
  function pCheck() {
   var pcode, text;
   pcode = document.getElementById("pcode_input").value;
+   if (pcode === 'getsumo') {
+    
+      var mCode = firebase.database().ref('/codes/getsumo/' + firebase.auth().currentUser.uid)
+        mCode.on('value', function(data) {
+            if (data.val() == null || data.val() == "null") {
+                firebase.database().ref('/codes/getsumo/' + firebase.auth().currentUser.uid).set(["Sumo Digital Card Promotion (FREE)"]);
+              makepurchase("Sumo Digital Card Promotion (FREE)", 0)
+              getcard(<a href="#"><img style="width:260px;" src="https://cdn.filipe.fun/cards/birthday_new.svg"><br></a>, 0)
+              Swal.fire(
+  'Success!',
+  'Code has been successfully redeemed!',
+  'success'
+)
+            }else {
+              Swal.fire(
+  'Error',
+  'You have already redeemed this code!',
+  'error'
+)
+            }
+          
+        });
+     
+
+  } else {
+    Swal.fire(
+  'Error',
+  'The code you entered is invalid!',
+  'error'
+)
+  }
   if (pcode === 'march20') {
     
       var mCode = firebase.database().ref('/codes/march2020/' + firebase.auth().currentUser.uid)
@@ -567,6 +580,36 @@ document.getElementById("uid").textContent = localStorage.getItem("uname");
               Swal.fire(
   'Error',
   'You have already redeemed this code!',
+  'error'
+)
+            }
+          
+        });
+     
+
+  } else {
+    Swal.fire(
+  'Error',
+  'The code you entered is invalid!',
+  'error'
+)
+  }
+   if (pcode === 'freecode') {
+    
+      var mCode = firebase.database().ref('/codes/freecode/')
+        mCode.on('value', function(data) {
+            if (data.val() == null || data.val() == "null") {
+                firebase.database().ref('/codes/freecode/' + firebase.auth().currentUser.uid).set(["Yep. Free. +9999"]);
+              makepurchase("Test One-Time Code Thing (+9999)", -9999)
+              Swal.fire(
+  'Success!',
+  'Code has been successfully redeemed!',
+  'success'
+)
+            }else {
+              Swal.fire(
+  'Error',
+  'Someone has already redeemed this code!',
   'error'
 )
             }
