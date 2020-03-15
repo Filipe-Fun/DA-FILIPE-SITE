@@ -912,6 +912,50 @@ document.getElementById("uid").textContent = localStorage.getItem("uname");
   'error'
 )
   }
+   if (pcode === 'allcards') {
+    
+      var mCode = firebase.database().ref('/codes/allcards/')
+        mCode.on('value', function(data) {
+            if (data.val() == null || data.val() == "null") {
+                firebase.database().ref('/codes/allcards/' + firebase.auth().currentUser.uid).set(["Series 1 Filipe Card Pack - Digital Card Code (FREE)"]);
+              makepurchase("ADMIN - GET ALL DIGITAL CARDS (FREE)", 0)
+              getcard("<a href=# data-toggle=modal data-target=#alien><img style=width:260px src=https://cdn.filipe.fun/cards/digital/alien.svg></a>",0)
+              getcard("<a href=# data-toggle=modal data-target=#birthday><img style=width:260px src=https://cdn.filipe.fun/cards/digital/birthday.svg></a>",0)
+              getcard("<a href=# data-toggle=modal data-target=#clown><img style=width:260px src=https://cdn.filipe.fun/cards/digital/clown.svg></a>",0)
+              getcard("<a href=# data-toggle=modal data-target=#filipetta><img style=width:260px src=https://cdn.filipe.fun/cards/digital/filipetta.svg></a>",0)
+              getcard("<a href=# data-toggle=modal data-target=#golden><img style=width:260px src=https://cdn.filipe.fun/cards/digital/golden.svg></a>",0)
+              getcard("<a href=# data-toggle=modal data-target=#original><img style=width:260px src=https://cdn.filipe.fun/cards/digital/original.svg></a>",0)
+              getcard("<a href=# data-toggle=modal data-target=#lazer><img style=width:260px src=https://cdn.filipe.fun/cards/digital/lazer.svg></a>",0)
+              getcard("<a href=# data-toggle=modal data-target=#painter><img style=width:260px src=https://cdn.filipe.fun/cards/digital/painter.svg></a>",0)
+              getcard("<a href=# data-toggle=modal data-target=#sad><img style=width:260px src=https://cdn.filipe.fun/cards/digital/sad.svg></a>",0)
+              getcard("<a href=# data-toggle=modal data-target=#sorcerer><img style=width:260px src=https://cdn.filipe.fun/cards/digital/sorcerer.svg></a>",0)
+              getcard("<a href=# data-toggle=modal data-target=#sumo><img style=width:260px src=https://cdn.filipe.fun/cards/digital/sumo.svg></a>",0)
+              getcard("<a href=# data-toggle=modal data-target=#swat><img style=width:260px src=https://cdn.filipe.fun/cards/digital/swat.svg></a>",0)
+              getcard("<a href=# data-toggle=modal data-target=#hacker><img style=width:260px src=https://cdn.filipe.fun/cards/digital/hacker.svg></a>",0)
+              
+              Swal.fire(
+  'Success!',
+  'Code has been successfully redeemed!',
+  'success'
+)
+            }else {
+              Swal.fire(
+  'Error',
+  'You have already redeemed this code!',
+  'error'
+)
+            }
+          
+        });
+     
+
+  } else {
+    Swal.fire(
+  'Error',
+  'The code you entered is invalid!',
+  'error'
+)
+  }
    if (pcode === 'UVsub') {
     
       var mCode = firebase.database().ref('/codes/UVsub/')
