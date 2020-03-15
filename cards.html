@@ -800,7 +800,6 @@ firebase.auth().getRedirectResult().then(function(result) {
      var dCa = firebase.database().ref('/digcards/' + firebase.auth().currentUser.uid)
         dCa.on('value', function(data) {
           if (data.val() == null || data.val() == "null") {
-                firebase.database().ref('/digcards/' + firebase.auth().currentUser.uid).set(["Original Filipe"]);
               
             }
             dcards.innerHTML = "<h4>Your Digital Card Collection</h4><p>Click on a card to learn more about it</p><br>"
