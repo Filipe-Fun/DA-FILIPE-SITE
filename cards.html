@@ -437,17 +437,17 @@ function makepurchase(name, amount) {
         });
     });
 }
-function getcard(card_id, amount) {
+function getcard(name, amount) {
     firebase.database().ref('/coinss/' + firebase.auth().currentUser.uid).once('value').then(function(snapshot) {
         curr_coinss = snapshot.val()
         if (curr_coinss - parseInt(amount) < 0) {
             alert("Insufficent Funds")
             return;
         }
-        firebase.database().ref('/coins/' + firebase.auth().currentUser.uid).set(curr_coinss - parseInt(amount));
+        firebase.database().ref('/coinss/' + firebase.auth().currentUser.uid).set(curr_coinss - parseInt(amount));
         firebase.database().ref('/digcards/' + firebase.auth().currentUser.uid).once('value').then(function(snapshot) {
             curr_cards = snapshot.val()
-            curr_cards.push(card_id)
+            curr_cards.push(name)
             firebase.database().ref('/digcards/' + firebase.auth().currentUser.uid).set(curr_cards);
         });
     });
