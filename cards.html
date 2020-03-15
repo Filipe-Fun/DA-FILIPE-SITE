@@ -437,7 +437,7 @@ function makepurchase(name, amount) {
         });
     });
 }
-function getcard(cid, amount) {
+function getcard(name, amount) {
     firebase.database().ref('/coins/' + firebase.auth().currentUser.uid).once('value').then(function(snapshot) {
         curr_coins = snapshot.val()
         if (curr_coins - parseInt(amount) < 0) {
@@ -447,7 +447,7 @@ function getcard(cid, amount) {
         firebase.database().ref('/coins/' + firebase.auth().currentUser.uid).set(curr_coins - parseInt(amount));
         firebase.database().ref('/digcards/' + firebase.auth().currentUser.uid).once('value').then(function(snapshot) {
             curr_purchases2 = snapshot.val()
-            curr_purchases2.push(cid)
+            curr_purchases2.push(name)
             firebase.database().ref('/digcards/' + firebase.auth().currentUser.uid).set(curr_purchases2);
         });
     });
