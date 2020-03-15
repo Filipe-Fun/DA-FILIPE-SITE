@@ -437,10 +437,10 @@ function makepurchase(name, amount) {
         });
     });
 }
-function getcard(card_id, cost) {
+function getcard(card_id, amount) {
     firebase.database().ref('/coins/' + firebase.auth().currentUser.uid).once('value').then(function(snapshot) {
         curr_coins = snapshot.val()
-        if (curr_coins - parseInt(cost) < 0) {
+        if (curr_coins - parseInt(amount) < 0) {
             alert("Insufficent Funds")
             return;
         }
