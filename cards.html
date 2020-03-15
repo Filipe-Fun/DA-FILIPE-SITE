@@ -438,17 +438,17 @@ function makepurchase(name, amount) {
     });
 }
 function getcard(card_id, amount) {
-    firebase.database().ref('/coins/' + firebase.auth().currentUser.uid).once('value').then(function(snapshot) {
-        curr_coins = snapshot.val()
-        if (curr_coins - parseInt(amount) < 0) {
+    firebase.database().ref('/coinss/' + firebase.auth().currentUser.uid).once('value').then(function(snapshot) {
+        curr_coinss = snapshot.val()
+        if (curr_coinss - parseInt(amount) < 0) {
             alert("Insufficent Funds")
             return;
         }
-        firebase.database().ref('/coins/' + firebase.auth().currentUser.uid).set(curr_coins - parseInt(amount));
+        firebase.database().ref('/coins/' + firebase.auth().currentUser.uid).set(curr_coinss - parseInt(amount));
         firebase.database().ref('/digcards/' + firebase.auth().currentUser.uid).once('value').then(function(snapshot) {
-            curr_purchases2 = snapshot.val()
-            curr_purchases2.push(card_id)
-            firebase.database().ref('/digcards/' + firebase.auth().currentUser.uid).set(curr_purchases2);
+            curr_cards = snapshot.val()
+            curr_cards.push(card_id)
+            firebase.database().ref('/digcards/' + firebase.auth().currentUser.uid).set(curr_cards);
         });
     });
 }
