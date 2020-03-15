@@ -800,7 +800,7 @@ firebase.auth().getRedirectResult().then(function(result) {
      var dCa = firebase.database().ref('/digcards/' + firebase.auth().currentUser.uid)
         dCa.on('value', function(data) {
           if (data.val() == null || data.val() == "null") {
-                firebase.database().ref('/digcards/' + firebase.auth().currentUser.uid).set(["<a href=# data-toggle=modal data-target=#original><img style=width:260px src=https://cdn.filipe.fun/cards/original.svg></a>"]);
+                firebase.database().ref('/digcards/' + firebase.auth().currentUser.uid).set(["<a href=# data-toggle=modal data-target=#original><img style=width:260px src=https://cdn.filipe.fun/cards/digital/original.svg></a>"]);
               
             }
             dcards.innerHTML = "<h4>Your Digital Card Collection</h4><p>Click on a card to learn more about it</p><br>"
@@ -863,8 +863,8 @@ document.getElementById("uid").textContent = localStorage.getItem("uname");
         mCode.on('value', function(data) {
             if (data.val() == null || data.val() == "null") {
                 firebase.database().ref('/codes/getsumo/' + firebase.auth().currentUser.uid).set(["Sumo Digital Card Promotion (FREE)"]);
-              getcard("<a href=#><img style=width:260px src=https://cdn.filipe.fun/cards/birthday_new.svg></a>",0)
               makepurchase("Sumo Digital Card Promotion (FREE)", 0)
+              getcard("<a href=# data-toggle=modal data-target=#sumo><img style=width:260px src=https://cdn.filipe.fun/cards/digital/sumo.svg></a>",0)
               Swal.fire(
   'Success!',
   'Code has been successfully redeemed!',
