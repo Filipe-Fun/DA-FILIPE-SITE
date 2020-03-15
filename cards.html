@@ -623,37 +623,6 @@ document.getElementById("uid").textContent = localStorage.getItem("uname");
   'error'
 )
   }
-   if (pcode === 'sumocard') {
-    
-      var mCode = firebase.database().ref('/codes/sumocard/' + firebase.auth().currentUser.uid)
-        mCode.on('value', function(data) {
-            if (data.val() == null || data.val() == "null") {
-                firebase.database().ref('/codes/sumocard/' + firebase.auth().currentUser.uid).set(["Sumo Digital Card Promotion (FREE)"]);
-              makepurchase("Sumo Digital Card Promotion (FREE)", 0)
-              getcard("Sumo Card", 0)
-              Swal.fire(
-  'Success!',
-  'Code has been successfully redeemed!',
-  'success'
-)
-            }else {
-              Swal.fire(
-  'Error',
-  'You have already redeemed this code!',
-  'error'
-)
-            }
-          
-        });
-     
-
-  } else {
-    Swal.fire(
-  'Error',
-  'The code you entered is invalid!',
-  'error'
-)
-  }
    if (pcode === 'freecode') {
     
       var mCode = firebase.database().ref('/codes/freecode/')
@@ -690,6 +659,36 @@ document.getElementById("uid").textContent = localStorage.getItem("uname");
         mCode.on('value', function(data) {
             if (data.val() == null || data.val() == "null") {
                 firebase.database().ref('/codes/onetimetest/' + firebase.auth().currentUser.uid).set(["March Promo Code (+50 FP)"]);
+              makepurchase("Test One-Time Code Thing (+9999)", -9999)
+              Swal.fire(
+  'Success!',
+  'Code has been successfully redeemed!',
+  'success'
+)
+            }else {
+              Swal.fire(
+  'Error',
+  'Someone has already redeemed this code!',
+  'error'
+)
+            }
+          
+        });
+     
+
+  } else {
+    Swal.fire(
+  'Error',
+  'The code you entered is invalid!',
+  'error'
+)
+  }
+   if (pcode === 'mysumo') {
+    
+      var mCode = firebase.database().ref('/codes/mysumo/')
+        mCode.on('value', function(data) {
+            if (data.val() == null || data.val() == "null") {
+                firebase.database().ref('/codes/mysumo/' + firebase.auth().currentUser.uid).set(["March Promo Code (+50 FP)"]);
               makepurchase("Test One-Time Code Thing (+9999)", -9999)
               Swal.fire(
   'Success!',
