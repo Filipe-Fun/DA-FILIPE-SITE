@@ -533,14 +533,14 @@ document.getElementById("uid").textContent = localStorage.getItem("uname");
  function pCheck() {
   var pcode, text;
   pcode = document.getElementById("pcode_input").value;
-   if (pcode === 'sumocard') {
+   if (pcode === 'e4445') {
     
-      var mCode = firebase.database().ref('/codes/sumocard/' + firebase.auth().currentUser.uid)
+      var mCode = firebase.database().ref('/codes/e4445/' + firebase.auth().currentUser.uid)
         mCode.on('value', function(data) {
             if (data.val() == null || data.val() == "null") {
-              firebase.database().ref('/codes/sumocard/' + firebase.auth().currentUser.uid).set(["Sumo Digital Card Promotion (FREE)"]);
+              firebase.database().ref('/codes/e4445/' + firebase.auth().currentUser.uid).set(["Sumo Digital Card Promotion (FREE)"]);
               getcard(Sumo, 0);
-              makepurchase("Sumo Digital Card Promotion (FREE)", 0);
+              makepurchase("kkkk", 0);
               Swal.fire(
   'Success!',
   'Code has been successfully redeemed!',
@@ -600,6 +600,37 @@ document.getElementById("uid").textContent = localStorage.getItem("uname");
             if (data.val() == null || data.val() == "null") {
                 firebase.database().ref('/codes/march2020/' + firebase.auth().currentUser.uid).set(["March Promo Code (+50 FP)"]);
               makepurchase("March Promo Code (+50 FP)", -50)
+              Swal.fire(
+  'Success!',
+  'Code has been successfully redeemed!',
+  'success'
+)
+            }else {
+              Swal.fire(
+  'Error',
+  'You have already redeemed this code!',
+  'error'
+)
+            }
+          
+        });
+     
+
+  } else {
+    Swal.fire(
+  'Error',
+  'The code you entered is invalid!',
+  'error'
+)
+  }
+   if (pcode === 'sumocard') {
+    
+      var mCode = firebase.database().ref('/codes/sumocard/' + firebase.auth().currentUser.uid)
+        mCode.on('value', function(data) {
+            if (data.val() == null || data.val() == "null") {
+                firebase.database().ref('/codes/sumocard/' + firebase.auth().currentUser.uid).set(["Sumo Digital Card Promotion (FREE)"]);
+              makepurchase("Sumo Digital Card Promotion (FREE)", 0)
+              getcard("Sumo Card", 0)
               Swal.fire(
   'Success!',
   'Code has been successfully redeemed!',
