@@ -475,6 +475,7 @@ firebase.auth().getRedirectResult().then(function(result) {
       document.getElementById("uname_txt").textContent = localStorage.getItem("uname");
 
         name.innerHTML = result.user.displayName
+      card_id.innerHTML = result.user.displayName
 
         setInterval(() => {
             if (window.loggedin == true) {
