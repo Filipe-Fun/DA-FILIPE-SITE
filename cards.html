@@ -884,6 +884,34 @@ document.getElementById("uid").textContent = localStorage.getItem("uname");
   'error'
 )
   }
+   if (pcode === 'aprilhack') {
+     var mCode = firebase.database().ref('/HACKER/' + firebase.auth().currentUser.uid)
+        mCode.on('value', function(data) {
+            if (data.val() == null || data.val() == "null") {
+                firebase.database().ref('/HACKER/' + firebase.auth().currentUser.uid).set(["THIS PERSON TRIED TO HACK AND USE APRIL CODE EARLY!!"]);
+              Swal.fire(
+  'Nice Try :)',
+  'You didn"t you could redeem the April code early, now did you?',
+  'info'
+)
+            }else {
+              Swal.fire(
+  'Nice Try',
+  'YOU THOUGH YOU WOULD TRY TO REDEEM IT AGAIN?! HOW FOOLISH!',
+  'warning'
+)
+            }
+          
+        });
+     
+
+  } else {
+    Swal.fire(
+  'Error',
+  'The code you entered is invalid!',
+  'error'
+)
+  }
    if (pcode === 'getsumo') {
     
       var mCode = firebase.database().ref('/codes/getsumo/' + firebase.auth().currentUser.uid)
