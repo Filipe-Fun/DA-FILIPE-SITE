@@ -157,7 +157,7 @@
   <div class="row">
     
     <div class="col-sm-6"><br><h2>Order a Card Pack</h2><span class="badge badge-info align-top">Cost: 200 Filipe Points</span><hr>
-      <button type="button" class="btn btn-outline-primary" data-toggle="collapse" data-target="#ordercardform"><h3>Fill Out the Form</h3></button><br><div id="ordercardform" class="collapse text-center col-sm-12" style="margin-top:5%"><form action=""><div class="form-group">
+      <button type="button" class="btn btn-outline-primary" data-toggle="collapse" data-target="#ordercardform"><h3>Fill Out the Form</h3></button><br><div id="ordercardform" class="collapse text-center col-sm-12" style="margin-top:5%"><form action="https://submit-form.com/J0PESkmu-orD8W8b5rRVk"><input type="hidden" name="_redirect" value="false" /><div class="form-group">
                 <label for="name">
                     <h4 style="color:black;">Full Name<span style="color:red;"> *</span></h4>
                     <h6 class="text-gray-900">This is auto-filled based on your Google Account information.</h6>
@@ -185,7 +185,29 @@ guaranteed to get the card you want.</h6>
                     <option value="2020 Spring Pack" disabled="">2020 Spring Pack (COMING SOON) - includes 3 cards, 1 brocure and 1 digital code</option>
            
                 </select>
-            </div><input class="btn btn-primary btn-block btn-lg" type="submit" value="Send Order"></form></div></div>
+            </div><button type="button" data-toggle="modal" data-target="#orderPopup" class="btn btn-primary btn-block btn-lg">Send Order</button>
+      <!-- The Modal -->
+  <div class="modal fade" id="orderPopup">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <center><div class="modal-header">
+          <h4 class="">Confirm your order of <u><b>1 Filipe Card Pack</b></u> for a total of <u><b>200 Filipe Points</b></u>.</h4>
+          
+        </div></center>
+        
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button> <input type="submit" value="Confirm Order" onclick="orderConf()" class="btn btn-success" data-dismiss="modal"></input>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+</div></form></div></div>
     
     
     
@@ -1765,6 +1787,20 @@ document.getElementById("uid").textContent = localStorage.getItem("uname");
       <script>window.jQuery || document.write('<script src="/docs/4.4/assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="/docs/4.4/dist/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
   <script>
 
-    </script></body>
+    </script>
+<script>
+var orderConfig;
+
+function orderConf() {
+
+  orderFin = setTimeout(orderSuccess, 800);
+makepurchase("Filipe Card Pack x 1 (-200 FP)", 200);
+}
+
+function orderSuccess() {
+  window.location.href="https://filipe.fun/cards/order_result"
+}
+</script>
+</body>
 
 </html>
