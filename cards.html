@@ -764,16 +764,14 @@ function makepurchase(name, amount) {
     firebase.database().ref('/coins/' + firebase.auth().currentUser.uid).once('value').then(function(snapshot) {
         curr_coins = snapshot.val()
         if (curr_coins - parseInt(amount) < 0) {
- swal({
-  title: "Error",
-  text: "You do not have enough points to purchase this!",
-  icon: "error",
-  closeOnClickOutside: false,
-  closeOnEsc: false,
-  allowOutsideClick: false,
-  buttons: [
-  ],
-  dangerMode: true,
+Swal.fire({
+  icon: 'error',
+  title: 'Error',
+text: 'You do not have enough points to purchase this!',
+  showConfirmButton: false,
+allowEscapeKey: false,
+allowEnterKey: false,
+allowOutsideClick: false
 })
           setTimeout(function(){ location.reload(); }, 2000);
             return;
