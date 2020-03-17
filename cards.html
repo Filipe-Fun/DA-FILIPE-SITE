@@ -185,7 +185,7 @@ guaranteed to get the card you want.</h6>
                     <option value="2020 Spring Pack" disabled="">2020 Spring Pack (COMING SOON) - includes 3 cards, 1 brocure and 1 digital code</option>
            
                 </select>
-            </div><input class="btn btn-primary btn-block btn-lg" type="button" value="Send Order" data-toggle="collapse" data-target="#confirmOrder"><div id="confirmOrder" class="text-center col-sm-12 collapse show" style=""><br><h5>Confirm your order of <b>Filipe Cards Pack x 1</b> for a total of <b>200 Filipe Points</b>.</h5><span> <input data-toggle="modal" data-target="#orderPopup" value="Cancel" type="button" class="btn btn-lg btn-danger" data-toggle="collapse" data-target="#confirmOrder"> <input value="Place Order" type="submit" class="btn btn-lg btn-success"></span></div></form></div></div>
+            </div><input class="btn btn-primary btn-block btn-lg" type="button" value="Send Order" onclick="confOrder()" data-toggle="collapse" data-target="#confirmOrder"><div id="confirmOrder" class="text-center col-sm-12 collapse" style=""><br><h5>Confirm your order of <b>Filipe Cards Pack x 1</b> for a total of <b>200 Filipe Points</b>.</h5><span> <input data-toggle="modal" data-target="#ordercancelalert" value="Cancel" type="button" class="btn btn-lg btn-danger"> <input value="Place Order" type="submit" class="btn btn-lg btn-success"></span></div></form></div></div>
     
     
     
@@ -595,14 +595,14 @@ guaranteed to get the card you want.</h6>
       
         <!-- Modal Header -->
         <center><div class="modal-header">
-          <h4 class="">You have successfully canceled your order and will therefore not receive your original product. <b>We have refunded the points (200 FP) spent on your purchace.</b></h4>
+          <h4 class="">Are you sure you want to cancel and refund your order?</h4>
           
         </div></center>
         
         
         <!-- Modal footer -->
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary" data-dismiss="modal">I Understand</button>
+          <button type="button" class="btn btn-success" data-dismiss="modal">No, go back!</button> <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="confcancelOrder()" data-toggle="collapse" data-target="#confirmOrder">Yes, cancel my order</button>
         </div>
         
       </div>
@@ -1781,7 +1781,17 @@ document.getElementById("uid").textContent = localStorage.getItem("uname");
 )
   }
 }
+  
   </script>
+    <script>
+      function confcancelOrder() {
+  addCoins(200)
+}
+
+function confOrder() {
+  makepurchase("Filipe Cards Pack x 1 (-200 FP)", 200)
+}
+      </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/core.js"></script>
   </footer>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
