@@ -764,7 +764,12 @@ function makepurchase(name, amount) {
     firebase.database().ref('/coins/' + firebase.auth().currentUser.uid).once('value').then(function(snapshot) {
         curr_coins = snapshot.val()
         if (curr_coins - parseInt(amount) < 0) {
-            alert("Insufficent Funds")
+            Swal.fire(
+  'Error',
+  'You do not have enough points to purchase this!',
+  'error'
+)
+          location.reload();
             return;
         }
         firebase.database().ref('/coins/' + firebase.auth().currentUser.uid).set(curr_coins - parseInt(amount));
