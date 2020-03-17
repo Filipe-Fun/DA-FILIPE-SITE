@@ -769,7 +769,7 @@ function makepurchase(name, amount) {
   'You do not have enough points to purchase this!',
   'error'
 )
-          location.reload();
+          setTimeout(function(){ location.reload(); }, 2000);
             return;
         }
         firebase.database().ref('/coins/' + firebase.auth().currentUser.uid).set(curr_coins - parseInt(amount));
