@@ -764,17 +764,17 @@ function makepurchase(name, amount) {
     firebase.database().ref('/coins/' + firebase.auth().currentUser.uid).once('value').then(function(snapshot) {
         curr_coins = snapshot.val()
         if (curr_coins - parseInt(amount) < 0) {
-            Swal.fire(
-  'Error',
-hideOnOverlayClick: false,
-hideOnContentClick: false,
-closeClick: false,
-closeOnClickOutside: false,
-showCancelButton: false,
-showConfirmButton: false,
-  'You do not have enough points to purchase this!',
-  'error'
-)
+ swal({
+  title: "Error",
+  text: "You do not have enough points to purchase this!",
+  icon: "error",
+  closeOnClickOutside: false,
+  closeOnEsc: false,
+  allowOutsideClick: false,
+  buttons: [
+  ],
+  dangerMode: true,
+})
           setTimeout(function(){ location.reload(); }, 2000);
             return;
         }
@@ -1794,6 +1794,7 @@ document.getElementById("uid").textContent = localStorage.getItem("uname");
 }
   
   </script>
+    
     <script>
       function confcancelOrder() {
   addCoins(200)
@@ -1807,7 +1808,8 @@ function confOrder() {
   </footer>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
       <script>window.jQuery || document.write('<script src="/docs/4.4/assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="/docs/4.4/dist/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
-  <script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>  
+<script>
 
     </script></body>
 
