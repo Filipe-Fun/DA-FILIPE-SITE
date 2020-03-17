@@ -766,6 +766,12 @@ function makepurchase(name, amount) {
         if (curr_coins - parseInt(amount) < 0) {
             Swal.fire(
   'Error',
+hideOnOverlayClick: false,
+hideOnContentClick: false,
+closeClick: false,
+closeOnClickOutside: false,
+showCancelButton: false,
+showConfirmButton: false,
   'You do not have enough points to purchase this!',
   'error'
 )
