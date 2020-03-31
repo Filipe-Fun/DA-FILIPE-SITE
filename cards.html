@@ -969,21 +969,24 @@ document.getElementById("uid").textContent = localStorage.getItem("uname");
   'error'
 )
   }
-   if (pcode === 'aprilhack') {
-     var mCode = firebase.database().ref('/HACKER/' + firebase.auth().currentUser.uid)
+   if (pcode === 'getsumo') {
+    
+      var mCode = firebase.database().ref('/codes/getsumo/' + firebase.auth().currentUser.uid)
         mCode.on('value', function(data) {
             if (data.val() == null || data.val() == "null") {
-                firebase.database().ref('/HACKER/' + firebase.auth().currentUser.uid).set(["THIS PERSON TRIED TO HACK AND USE APRIL CODE EARLY!!"]);
+                firebase.database().ref('/codes/getsumo/' + firebase.auth().currentUser.uid).set(["Sumo Digital Card Promotion (FREE)"]);
+              makepurchase("Sumo Digital Card Promotion (FREE)", 0)
+              getcard("<a href=# data-toggle=modal data-target=#sumo><img style=width:260px src=https://cdn.filipe.fun/cards/digital/sumo.svg></a>",0)
               Swal.fire(
-  'Nice Try :)',
-  'You didn"t you could redeem the April code early, now did you?',
-  'info'
+  'Success!',
+  'Code has been successfully redeemed!',
+  'success'
 )
             }else {
               Swal.fire(
-  'Nice Try',
-  'YOU THOUGH YOU WOULD TRY TO REDEEM IT AGAIN?! HOW FOOLISH!',
-  'warning'
+  'Error',
+  'You have already redeemed this code!',
+  'error'
 )
             }
           
@@ -997,14 +1000,14 @@ document.getElementById("uid").textContent = localStorage.getItem("uname");
   'error'
 )
   }
-   if (pcode === 'getsumo') {
+	 if (pcode === 'aprilhack1') {
     
-      var mCode = firebase.database().ref('/codes/getsumo/' + firebase.auth().currentUser.uid)
+      var mCode = firebase.database().ref('/codes/april2020/' + firebase.auth().currentUser.uid)
         mCode.on('value', function(data) {
             if (data.val() == null || data.val() == "null") {
-                firebase.database().ref('/codes/getsumo/' + firebase.auth().currentUser.uid).set(["Sumo Digital Card Promotion (FREE)"]);
-              makepurchase("Sumo Digital Card Promotion (FREE)", 0)
-              getcard("<a href=# data-toggle=modal data-target=#sumo><img style=width:260px src=https://cdn.filipe.fun/cards/digital/sumo.svg></a>",0)
+                firebase.database().ref('/codes/april2020/' + firebase.auth().currentUser.uid).set(["April Fools 2020 Hacker Card Promotion (FREE)"]);
+              makepurchase("April Fools 2020 Hacker Card Promotion (FREE)", 0)
+              getcard("<a href=# data-toggle=modal data-target=#hacker><img style=width:260px src=https://cdn.filipe.fun/cards/digital/hacker.svg></a>",0)
               Swal.fire(
   'Success!',
   'Code has been successfully redeemed!',
@@ -1692,7 +1695,7 @@ document.getElementById("uid").textContent = localStorage.getItem("uname");
   'error'
 )
   }
-  if (pcode === 'march20') {
+if (pcode === 'march20') {
     
       var mCode = firebase.database().ref('/codes/march2020/' + firebase.auth().currentUser.uid)
         mCode.on('value', function(data) {
@@ -1703,6 +1706,34 @@ document.getElementById("uid").textContent = localStorage.getItem("uname");
   'Success!',
   'Code has been successfully redeemed!',
   'success'
+)
+            }else {
+              Swal.fire(
+  'Error',
+  'This code has already been redeemed!',
+  'error'
+)
+            }
+          
+        });
+     
+
+  } else {
+    Swal.fire(
+  'Error',
+  'The code you entered is invalid!',
+  'error'
+)
+  }
+	 if (pcode === 'march20exp') {
+    
+      var mCode = firebase.database().ref('/codes/march2020/' + firebase.auth().currentUser.uid)
+        mCode.on('value', function(data) {
+            if (data.val() == null || data.val() == "null") {
+              Swal.fire(
+  'Error!',
+  'The code you entered has expired!',
+  'error'
 )
             }else {
               Swal.fire(
