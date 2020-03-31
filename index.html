@@ -226,6 +226,32 @@ wpac_init.push({widget: 'Rating', id: 19019});
   })
 </script>
 <script async src="https://cdn.announcekit.app/widget.js"></script>
+                                                         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<style>
+#overlay {
+background: #ffffff;
+color: #666666;
+position: fixed;
+height: 100%;
+width: 100%;
+z-index: 5000;
+top: 0;
+left: 0;
+float: left;
+text-align: center;
+padding-top: 25%;
+}
+</style>
+<div id="overlay">
+<div class="spinner-border text-info" role="status">
+</div><br>
+<h4>Loading...</h4>
+</div> 
+<script>
+jQuery(window).load(function(){
+jQuery('#overlay').fadeOut();
+});
+</script>
                                                          
                                                          
 </html>
