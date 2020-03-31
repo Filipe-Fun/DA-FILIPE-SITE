@@ -842,6 +842,20 @@ firebase.auth().getRedirectResult().then(function(result) {
       document.getElementById("uname_in").value = localStorage.getItem("uname");
   document.getElementById("uemail_in").value = localStorage.getItem("uemail");
       document.getElementById("uname_txt").textContent = localStorage.getItem("uname");
+	     try {
+	document.getElementById("pimg-holder").src = localStorage.getItem("uimg");
+} catch (err) {
+	console.log(err);
+}
+
+try {
+	var pps = document.getElementsByClassName("img-profile");
+	for (let i = 0; i < pps.length; i++) {
+		pps[i].src = localStorage.getItem("uimg");
+	}
+} catch (err) {
+	console.log(err);
+}
 
         name.innerHTML = result.user.displayName
       
