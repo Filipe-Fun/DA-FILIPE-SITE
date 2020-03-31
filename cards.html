@@ -839,6 +839,26 @@ firebase.auth().getRedirectResult().then(function(result) {
       document.getElementById("uname_in").value = localStorage.getItem("uname");
   document.getElementById("uemail_in").value = localStorage.getItem("uemail");
       document.getElementById("uname_txt").textContent = localStorage.getItem("uname");
+	    if (localStorage.getItem("uname") == 'Michael McNulty') {
+		    Swal.fire(
+  'Warning',
+  'We are watching you Michael, any hacking and your account will be terminated. Have a nice day!',
+  'warning'
+)
+		    
+	    } else{
+		//nothing    
+	    }
+	    if (localStorage.getItem("uname") == 'Michael M') {
+		    Swal.fire(
+  'Warning',
+  'We are watching you Michael, any hacking and your account will be terminated. Have a nice day!',
+  'warning'
+)
+		    
+	    } else{
+		//nothing    
+	    }
 	     try {
 	document.getElementById("pimg-holder").src = localStorage.getItem("uimg");
 } catch (err) {
