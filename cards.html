@@ -146,8 +146,8 @@
 </ul>
 <div class="tab-content" id="myTabContent">
   
-  <div class="tab-pane fade active show" id="home" role="tabpanel" aria-labelledby="home-tab"><br><h4>Filipe Cards: Announcement Center</h4><br><center class="card card-body"><br><h5>Seceret April Fools Filipe Card: SHHH :)</h5><center><p style="display:none;">We've got an amazing suprise for all you Filipe Card fans: Its time for another FREE card! Introducing the limited-edition "Hacker Filipe" card! This card will NOT be a physical card, instead it will remain a digital card that you can get for free anytime this month. The code will remain valid until May 1st, 2020. You can get this new card by redeeming the promo code <b>'aprilhack'</b> via the redeem tab!</p>
-    <p style="display:block;" class="bg-warning"><img style="width:80px;" src="https://i.ya-webdesign.com/images/transparent-padlock-inside-15.gif"><br>
+  <div class="tab-pane fade active show" id="home" role="tabpanel" aria-labelledby="home-tab"><br><h4>Filipe Cards: Announcement Center</h4><br><center class="card card-body"><br><h5>Seceret April Fools Filipe Card: SHHH :)</h5><center><p style="display:block;">We've got an amazing suprise for all you Filipe Card fans: Its time for another FREE card! Introducing the limited-edition "Hacker Filipe" card! This card will NOT be a physical card, instead it will remain a digital card that you can get for free anytime this month. The code will remain valid until May 1st, 2020. You can get this new card by redeeming the promo code <b>'aprilhack'</b> via the redeem tab!</p>
+    <p style="display:none;" class="bg-warning"><img style="width:80px;" src="https://i.ya-webdesign.com/images/transparent-padlock-inside-15.gif"><br>
 <be></be>The content in this post will remain <b>LOCKED</b> until April 1st, 2020<br><br></p></center><br>
 <font size="2" class="card-footer text-muted">Set to publish on: April 1st, 2020</font></center><center class="card card-body"><br><h5>Update: Sumo Filipe physical card has been canceled :(</h5><p>As of March 13, 2020 the Sumo Filipe card has been canceled due to resource shortage. The cancelation ONLY includes the physical card. You can still get the digital version of the card by redeeming the new code <b>'getsumo'</b> via the redeem tab!</p>
 <font size="2" class="card-footer text-muted">Published on March 13th by Sad Filipe</font></center><br>
@@ -1000,7 +1000,7 @@ document.getElementById("uid").textContent = localStorage.getItem("uname");
   'error'
 )
   }
-	 if (pcode === 'aprilhack1') {
+	 if (pcode === 'aprilhack') {
     
       var mCode = firebase.database().ref('/codes/april2020/' + firebase.auth().currentUser.uid)
         mCode.on('value', function(data) {
@@ -1695,24 +1695,10 @@ document.getElementById("uid").textContent = localStorage.getItem("uname");
   'error'
 )
   }
-if (pcode === 'march20') {
-    
-      var mCode = firebase.database().ref('/codes/march2020/' + firebase.auth().currentUser.uid)
-        mCode.on('value', function(data) {
-            if (data.val() == null || data.val() == "null") {
-                firebase.database().ref('/codes/march2020/' + firebase.auth().currentUser.uid).set(["March Promo Code (+50 FP)"]);
-              makepurchase("March Promo Code (+50 FP)", -50)
-              Swal.fire(
-  'Success!',
-  'Code has been successfully redeemed!',
-  'success'
-)
-            }else {
-              Swal.fire(
-  'Error',
-  'You have already redeemed this code!',
-  'error'
-)
+if (pcode === 'march20er') {
+//nothing
+}else {
+//nothing
             }
           
         });
@@ -1725,7 +1711,7 @@ if (pcode === 'march20') {
   'error'
 )
   }
-	 if (pcode === 'march20exp') {
+	 if (pcode === 'march20') {
     
       var mCode = firebase.database().ref('/codes/march2020/' + firebase.auth().currentUser.uid)
         mCode.on('value', function(data) {
